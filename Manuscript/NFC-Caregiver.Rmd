@@ -42,7 +42,7 @@ authornote: |
 abstract: |
   Burnout has emerged as a global health concern, with its prevalence notably increasing during the COVID-19 pandemic. 
   This especially occurs among individuals working within the field of healthcare. 
-  In order to contribute to the improvement of working conditions and mental health, this study replicates a mediation model previously tested by Grass et al. (2018) among teaching students and by Zerna, Engelmann et al. (2022) among teachers. 
+  In order to contribute to the improvement of working conditions and mental health, this study replicates a mediation model previously tested by Grass et al. [-@Grass-2018] among teaching students and by Zerna et al. [-@Zerna-2022] among teachers. 
   For this purpose, multiple mediation models, using a sample of N = 642 healthcare workers were examined. 
   The incorporated predictor was Need for Cognition (an intrinsic motivation to engage with cognitively demanding thoughts). 
   Mediators were self-control, the emotion regulation strategies reappraisal and suppression, as well as adaptive and maladaptive coping strategies. 
@@ -92,18 +92,18 @@ knitr::opts_chunk$set(cache.extra = knitr::rand_seed)
 here::i_am("flag_root_for_NFC-Caregiver.txt")
 ```
 
-Burnout is a psychological, work-related stress syndrome and a global health concern [@maslach_job_2003, @parandeh_prevalence_2022]. 
-It correlates with depression [@bianchi_overlap_2015], increased alcohol abuse [@oreskovich_alcohol_2012], and a heightened risk of suicidal thoughts [@shanafelt_suicide_2011]. 
-As a response to excessive work stress [@maslach_burnout_1998], burnout affects not only individuals but also their workplace [@west_physicians_2018], leading to decreased productivity [@dewa_productivity_2017], reduced job satisfaction, and intentions to leave the profession [@shanafelt_satisfaction_2009].
+Burnout is a psychological, work-related stress syndrome and a global health concern [@Maslach-2003; @parandeh_prevalence_2022]. 
+It correlates with depression [@Bianchi-2015], increased alcohol abuse [@oreskovich_alcohol_2012], and a heightened risk of suicidal thoughts [@shanafelt_suicide_2011]. 
+As a response to excessive work stress [@Maslach-1998], burnout affects not only individuals but also their workplace [@west_physicians_2018], leading to decreased productivity [@Dewa-2017], reduced job satisfaction, and intentions to leave the profession [@shanafelt_satisfaction_2009].
 
-Occupational stress is a growing problem, especially among healthcare workers (Hassan et al., 2020).
-Challenges like time constraints, lack of control, and competing demands are significant job strains (Lyndon, 2015).
-The COVID-19 pandemic further exacerbated burnout rates (Galanis et al., 2021; Prasad et al., 2021), as healthcare workers faced higher health risks, increased workloads, inadequate equipment, and limited resources.
-These strains impacted not only the workers but also the quality of patient care, leading to lower patient satisfaction and increased medical errors (West et al., 2018).
+Occupational stress is a growing problem, especially among healthcare workers [@rink_stress-healthcare_2023]. <!-- was [@hassan_egypt_2020], but very specific ref. (egypt healthcare workers) search for meta-analysis/review -->
+Challenges like time constraints, lack of control, and competing demands are significant job strains (Lyndon, 2015). <!-- find better fitting ref. -->
+The COVID-19 pandemic further exacerbated burnout rates (Galanis et al., 2021; Prasad et al., 2021)<!-- check ref. fit -->, as healthcare workers faced higher health risks, increased workloads, inadequate equipment, and limited resources.
+These strains impacted not only the workers but also the quality of patient care, leading to lower patient satisfaction and increased medical errors [@west_physicians_2018].
 
 The rising number of burnout cases underscores its significance in today's society.
 Despite extensive research, the exact causes and antecedents of burnout are not fully understood. 
-This study investigates the relationship between burnout, its underlying mechanisms, and protective factors, extending previous research on factors mediating the role of cognitive motivation in burnout (Grass et al., 2018; Zerna et al., 2022) from aspiring and experienced teachers to healthcare professionals. 
+This study investigates the relationship between burnout, its underlying mechanisms, and protective factors, extending previous research on factors mediating the role of cognitive motivation in burnout [@Grass-2018; @Zerna-2022] from aspiring and experienced teachers to healthcare professionals. 
 The following section explains the mediation model and its variables.
 
 ## Theoretical Framework
