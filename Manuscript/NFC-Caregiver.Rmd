@@ -93,8 +93,8 @@ here::i_am("flag_root_for_NFC-Caregiver.txt")
 ```
 
 Burnout is a psychological, work-related stress syndrome and a global health concern [@maslach_job_2003, @parandeh_prevalence_2022]. 
-It correlates with depression (Bianchi et al., 2015), increased alcohol abuse (Oreskovich, 2012), and a heightened risk of suicidal thoughts (Shanafelt et al., 2011). 
-As a response to excessive work stress (Maslach, 1998), burnout affects not only individuals but also their workplace (West et al., 2018), leading to decreased productivity (Dewa et al., 2017), reduced job satisfaction, and intentions to leave the profession (Shanafelt et al., 2009).
+It correlates with depression [@bianchi_overlap_2015], increased alcohol abuse [@oreskovich_alcohol_2012], and a heightened risk of suicidal thoughts [@shanafelt_suicide_2011]. 
+As a response to excessive work stress [@maslach_burnout_1998], burnout affects not only individuals but also their workplace [@west_physicians_2018], leading to decreased productivity [@dewa_productivity_2017], reduced job satisfaction, and intentions to leave the profession [@shanafelt_satisfaction_2009].
 
 Occupational stress is a growing problem, especially among healthcare workers (Hassan et al., 2020).
 Challenges like time constraints, lack of control, and competing demands are significant job strains (Lyndon, 2015).
