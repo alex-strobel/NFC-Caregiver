@@ -275,24 +275,27 @@ Finally, those interested in the raffle could provide their email address which 
 
 \subsection{Material}\label{material}
 
-\includegraphics{NFC-Caregiver_files/figure-latex/omega-1.pdf}
-
 All questionnaires used were administered in German language.
-The reliabilities (MacDonald's \(\omega\) and Cronbach's \(\alpha\)) of the inventories used can be found in Table 1.
+The reliabilities (MacDonald's \(\omega\)) of the inventories used can be found in Table 1.
 The burnout dimensions \emph{reduced personal efficiency}, \emph{emotional exhaustion}, and \emph{depersonalization} were assessed using the German version of the 22-item Maslach Burnout Inventory (MBI-D, Büssing \& Perrar, 1992).
 Items such as ``I feel burned out by my job.'' were rated on a scale from 1 (does not occur at all) to 6 (occurs very often/strongly).
-The internal consistencies of the MBI-D showed good to excellent reliabilities (MacDonald's \(\omega\) \textgreater{} .82).
-For clearer classification of each subdimension's individual expressions, Dreher et al. (2019) provided specific values, where high burnout expression is classsified at rPE values \textgreater{} 24, EE values \textgreater{} 22, and DE values \textgreater{} 8.
+The internal consistencies of the MBI-D showed good to excellent reliabilities, MacDonald's \(omega\) = .92 (.89).
+
+For clearer classification of each subdimension's individual expressions, Dreher et al. (2019) provided specific values, where high burnout expression is classified at rPE values \textgreater{} 24, EE values \textgreater{} 22, and DE values \textgreater{} 8.
+
 NFC was assessed with the 16-item short version of the German NFC scale (NCS, Bless et al., 1994) with items like ``I like it when my life is full of tricky tasks that I have to solve.'' These items were rated on a seven-point rating scale ranging from +3 (very accurate) to --3 (completely inaccurate).
-The scale demonstrated an excellent internal consistency of MacDonald's \(\omega\) \textgreater{} .91.
+The scale demonstrated an excellent internal consistency of MacDonald's \(\omega\) .
+
 Self-control was measured by the 13-item short form of the Self-Control Scale (SCS-K-D, Bertrams \& Dickhäuser, 2009).
 Here, a five-point Likert scale from 1 (completely inaccurate) to 5 (completely accurate) was used to answer questions like ``I am good at resisting temptations.''
 This scale showed an acceptable internal consistency of MacDonald's \(\omega\) \textgreater{} .79.
+
 Further, the Emotion Regulation Questionnaire (ERQ-D, Abler \& Kessler, 2009), which included 10 items, was used to assess reappraisal and suppression. Reappraisal was measured by items like ``When I get into a stressful situation, I change my thoughts about the situation, so it calms me down.''
 Suppression was determined by items such as ``I keep my feelings to myself.''
 Participants responded on a scale ranging from 1 (not true at all) to 7 (absolutely true).
 The subscale that assessed reappraisal contained six items and achieved good reliability (MacDonald's \(\omega\) \textgreater{} .86).
 The four-item suppression subscale of the ERQ-D also reached good reliability with MacDonald's \(\omega\) \textgreater{} .81.
+
 Finally (and differing from the material used by Grass et al. (2018)), the 20-item Stress and Coping Inventory (SCI, Satow, 2012) was used to measure adaptive as well as maladaptive coping strategies.
 Adaptive coping was assessed by the subscales ``positive thinking'', ``active stress management'', ``social support'', and ``holding on to faith''.
 These subscales, consisting of 16 items such as ``When stress and pressure arise, I directly address the causes,'' altogether demonstrated an internal consistency of MacDonald's Omega \(\omega\) \textgreater{} .85.
@@ -304,6 +307,52 @@ This subscale had a questionable internal consistency of MacDonald's Omega \(\om
 \subsection{Data analysis}\label{data-analysis}
 
 We used R (Version 4.4.1; R Core Team, 2024) and the R-packages \emph{BayesFactor} (Version 0.9.12.4.7; Morey \& Rouder, 2024), \emph{coda} (Version 0.19.4.1; Plummer et al., 2006), \emph{here} (Version 1.0.1; Müller, 2020), \emph{lavaan} (Version 0.6.18; Rosseel, 2012), \emph{Matrix} (Version 1.7.0; Bates et al., 2024), \emph{papaja} (Version 0.1.1.9001; Aust \& Barth, 2022), \emph{psych} (Version 2.4.6.26; William Revelle, 2024), \emph{readr} (Version 2.1.5; Wickham et al., 2024), \emph{RStudio} (Posit team, 2024), and \emph{tinylabels} (Version 0.2.4; Barth, 2023) for all our analyses.
+
+\begin{lltable}
+
+\begin{TableNotes}[para]
+\normalsize{\textit{Note.} \textit{N} = 642. Correlations with $|r_s|\geq.13$ are significant at an uncorrected $\alpha = .001$. The diagonal provides MacDonald’s $\omega$ and Cronbach’s $\alpha$ (in brackets). MBI = Maslach Burnout Inventory; MBI RPE = Reduced Personal Efficacy subscale; MBI EE = Emotional Exhaustion subscale; MBI DE = Depersonalisation subscale; NFC = Need for Cognition Scale; SCS = Self Control Scale; ERQ = Emotion Regulation Questionnaire; ERQ R = Reappraisal subscale; ERQ S = Suppression subscale; SCI = Stress and Coping Inventory; SCI A = Adaptive coping subscales; SCI MA = Maladaptive coping subscale}
+\end{TableNotes}
+
+\scriptsize{
+
+\begin{longtable}{lrrrrrrrrrrrr}\noalign{\getlongtablewidth\global\LTcapwidth=\longtablewidth}
+\caption{\label{tab:data}Spearman correlations and internal consistencies of the questionnaire scores (outliers included)}\\
+\toprule
+ & \multicolumn{1}{c}{1} & \multicolumn{1}{c}{2} & \multicolumn{1}{c}{3} & \multicolumn{1}{c}{4} & \multicolumn{1}{c}{5} & \multicolumn{1}{c}{6} & \multicolumn{1}{c}{7} & \multicolumn{1}{c}{8} & \multicolumn{1}{c}{9} & \multicolumn{1}{c}{10} & \multicolumn{1}{c}{11} & \multicolumn{1}{c}{12}\\
+\midrule
+\endfirsthead
+\caption*{\normalfont{Table \ref{tab:data} continued}}\\
+\toprule
+ & \multicolumn{1}{c}{1} & \multicolumn{1}{c}{2} & \multicolumn{1}{c}{3} & \multicolumn{1}{c}{4} & \multicolumn{1}{c}{5} & \multicolumn{1}{c}{6} & \multicolumn{1}{c}{7} & \multicolumn{1}{c}{8} & \multicolumn{1}{c}{9} & \multicolumn{1}{c}{10} & \multicolumn{1}{c}{11} & \multicolumn{1}{c}{12}\\
+\midrule
+\endhead
+1. MBI & .92 (.89) &  &  &  &  &  &  &  &  &  &  & \\
+2. MBI RPE & .69 & .82 (.76) &  &  &  &  &  &  &  &  &  & \\
+3. MBI EE & .89 & .43 & .94 (.90) &  &  &  &  &  &  &  &  & \\
+4. MBI DE & .68 & .38 & .41 & .89 (.78) &  &  &  &  &  &  &  & \\
+5. NFC & -.19 & -.19 & -.18 & -.07 & .91 (.85) &  &  &  &  &  &  & \\
+6. SCS & -.16 & -.18 & -.14 & -.08 & .56 & .79 (.72) &  &  &  &  &  & \\
+7. ERQ & -.06 & -.14 & -.05 & .01 & .04 & .00 & .82 (.70) &  &  &  &  & \\
+8. ERQ R & -.23 & -.29 & -.15 & -.18 & .06 & .06 & .73 & .86 (.80) &  &  &  & \\
+9. ERQ S & .20 & .12 & .13 & .26 & -.01 & -.06 & .62 & -.02 & .81 (.75) &  &  & \\
+10. SCI & -.36 & -.36 & -.29 & -.22 & .05 & -.01 & .18 & .35 & -.16 & .81 (.75) &  & \\
+11. SCI A & -.45 & -.42 & -.37 & -.28 & .15 & .09 & .17 & .36 & -.19 & .93 & .85 (.79) & \\
+12. SCI MA & .22 & .11 & .22 & .15 & -.30 & -.28 & .03 & -.02 & .07 & .23 & -.11 & .63 (.48)\\ \midrule
+Mean & 58.05 & 18.24 & 28.71 & 11.10 & 0.89 & 39.81 & 40.73 & 27.72 & 13.00 & 54.15 & 43.76 & 10.39\\
+SD & 13.93 & 4.45 & 8.58 & 4.46 & 16.37 & 7.54 & 8.14 & 6.27 & 5.14 & 6.32 & 6.23 & 2.10\\
+Min & 27.00 & 8.00 & 9.00 & 5.00 & -36.00 & 21.00 & 10.00 & 6.00 & 4.00 & 34.00 & 23.00 & 7.00\\
+Max & 108.00 & 36.00 & 54.00 & 26.00 & 45.00 & 65.00 & 65.00 & 42.00 & 28.00 & 71.00 & 61.00 & 19.00\\
+Skew & 0.42 & 0.59 & 0.20 & 0.66 & 0.55 & 0.42 & -0.17 & -0.28 & 0.29 & -0.20 & -0.12 & 0.26\\
+Kurtosis & -0.07 & 0.78 & -0.40 & -0.28 & -0.55 & -0.21 & 0.72 & 0.46 & -0.51 & 0.46 & 0.42 & 0.10\\
+\bottomrule
+\addlinespace
+\insertTableNotes
+\end{longtable}
+
+}
+
+\end{lltable}
 
 \section{Results}\label{results}
 
