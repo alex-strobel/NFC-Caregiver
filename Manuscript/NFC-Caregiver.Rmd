@@ -92,11 +92,11 @@ knitr::opts_chunk$set(cache.extra = knitr::rand_seed)
 here::i_am("flag_root_for_NFC-Caregiver.txt")
 ```
 
-Burnout is a psychological, work-related stress syndrome and a global health concern [@Maslach-2003; @parandeh_prevalence_2022]. 
-It correlates with depression [@Bianchi-2015], increased alcohol abuse [@oreskovich_alcohol_2012], and a heightened risk of suicidal thoughts [@shanafelt_suicide_2011]. 
-As a response to excessive work stress [@Maslach-1998], burnout affects not only individuals but also their workplace [@west_physicians_2018], leading to decreased productivity [@Dewa-2017], reduced job satisfaction, and intentions to leave the profession [@shanafelt_satisfaction_2009].
+Burnout is a psychological, work-related stress syndrome and a global health concern [@Maslach-2003; @Parandeh-2022]. 
+It correlates with depression [@Bianchi-2015], increased alcohol abuse [@Oreskovich-2012], and a heightened risk of suicidal thoughts [@Shanafelt-2011]. 
+As a response to excessive work stress [@Maslach-1998], burnout affects not only individuals but also their workplace [@West-2018], leading to decreased productivity [@Dewa-2017], reduced job satisfaction, and intentions to leave the profession [@Shanafelt-2009].
 
-Occupational stress is a growing problem, especially among healthcare workers [@rink_stress-healthcare_2023]. <!-- was [@hassan_egypt_2020], but very specific ref. (egypt healthcare workers) search for meta-analysis/review -->
+Occupational stress is a growing problem, especially among healthcare workers [@Rink-2023]. <!-- was [@Hassan-2020], but very specific ref. (egypt healthcare workers) search for meta-analysis/review -->
 Challenges like time constraints, lack of control, and competing demands are significant job strains (Lyndon, 2015). <!-- find better fitting ref. -->
 The COVID-19 pandemic further exacerbated burnout rates [@Galanis-2021; @Prasad-2021]<!-- check ref. fit -->, as healthcare workers faced higher health risks, increased workloads, inadequate equipment, and limited resources.
 These strains impacted not only the workers but also the quality of patient care, leading to lower patient satisfaction and increased medical errors [@west_physicians_2018].
