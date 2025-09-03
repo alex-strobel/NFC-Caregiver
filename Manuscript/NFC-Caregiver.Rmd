@@ -75,10 +75,10 @@ output            : papaja::apa6_pdf
 ---
 
 ```{r setup, include = FALSE}
+library("here")    # for avoiding path edits
+library("lavaan")  # for mediation analysis
 library("papaja")  # for manuscript creation
 library("psych")   # for descriptive statistics and correlation analysis
-library("lavaan")  # for mediation analysis
-library("here")    # for avoiding path edits
 
 r_refs("r-references.bib")
 ```
@@ -107,6 +107,10 @@ This study investigates the relationship between burnout, its underlying mechani
 The following section explains the mediation model and its variables.
 
 ## Theoretical Framework
+
+...
+
+## The present study
 
 ...
 
@@ -146,7 +150,7 @@ rel_mbi = ao(as.matrix(preprocessed_data[grep("mbi", colnames(preprocessed_data)
 
 ```
 All questionnaires used were administered in German language. 
-The reliabilities (MacDonald’s $\omega$) of the inventories used can be found in Table 1.
+The reliabilities (MacDonald’s $\omega$ and Cronbach's $\alpha$) of the inventories used can be found in Table 1.
 The burnout dimensions *reduced personal efficiency*, *emotional exhaustion*, and *depersonalization* were assessed using the German version of the 22-item Maslach Burnout Inventory [MBI-D, @Buessing-1992]. 
 Items such as “I feel burned out by my job.” were rated on a scale from 1 (does not occur at all) to 6 (occurs very often/strongly). 
 The internal consistencies of the MBI-D showed good to excellent reliabilities, MacDonald's $omega$ = `r rel_mbi`.
@@ -168,13 +172,16 @@ The four-item suppression subscale of the ERQ-D also reached good reliability wi
 
 Finally (and differing from the material used by @Grass-2018), the 20-item Stress and Coping Inventory [SCI, @Satow-2012] was used to measure adaptive as well as maladaptive coping strategies.
 Adaptive coping was assessed by the subscales “positive thinking”, “active stress management”, “social support”, and “holding on to faith”. 
-These subscales, consisting of 16 items such as "When stress and pressure arise, I directly address the causes," altogether demonstrated an internal consistency of MacDonald’s Omega $\omega$ > .85. 
+These subscales, consisting of 16 items such as "When stress and pressure arise, I directly address the causes," altogether demonstrated an internal consistency of MacDonald’s Omega $\omega$ = .85. 
 Maladaptive coping was measured with the “increased alcohol and cigarette consumption” subscale, containing items like "When I am under too much stress, I smoke a cigarette." The items were rated from 1 (does not apply) to 4 (applies exactly). 
-This subscale had a questionable internal consistency of MacDonald’s Omega $\omega$ > .63.
+This subscale had a questionable internal consistency of MacDonald’s Omega $\omega$ = .63.
 
-## Procedure
+## Procedure 
+<!-- include? because above is already a paragraph study design ... -->
 
-## Data analysis
+...
+
+## Statistical analyses
 We used `r cite_r("r-references.bib")` for all our analyses.
 
 ```{r data, echo = F} 
