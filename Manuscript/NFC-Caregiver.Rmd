@@ -277,6 +277,9 @@ apa_table(list(ct, dt), landscape = T, midrules = 12, format.args = list(gt1 = F
 # retain only variables of interest (MBI subscales, NFC, Self-Control, emotion regulation strategies, and coping styles) 
 df_analysis = score_ZK[, c("mbi_ee", "mbi_rpe", "mbi_de", "nfc", "scs", "erq_reap", "erq_supp", "sci_adapt", "sci_maladapt")]
 
+
+# tests for univariate and multivariate normality
+
 # summary function for Shapiro-Wilk tests on univariate normality 
 sw <- function(x) {
   x = data.frame(x)
@@ -293,6 +296,7 @@ sw <- function(x) {
   return(round(r,3))
 }
 
+# results of tests for univariate and multivariate normality
 uvn = sw(df_analysis)
 mvn = mardia(df_analysis, plot=F)
 
@@ -328,17 +332,59 @@ Robust tests were used to account for deviation from univariate and multivariate
 
 Table 1 one provides the bivariate Spearman correlation coefficients between the variables of interest. In the following, the results of the correlation analyses for research questions 1-3 are reported. 
 
-## Research Question 1
+### Research Question 1
+Here, we addressed possible relationships between Need for Cognition (NFC), self-control, adaptive and maladaptive coping strategies, the emotion regulation strategies reappraisal and suppression, as well as the burnout dimension *reduced personal efficacy*. We observed `r classify_r(df_analysis$nfc, df_analysis$scs)` correlation between NFC and self-control (H1a), `r report_cor(df_analysis$nfc, df_analysis$scs)`. Concerning habitually used emotion regulation strategies (H1b), there was no relation with NFC, neither for *reappraisal*, `r report_cor(df_analysis$nfc, df_analysis$erq_reap)`, nor for *suppression*, `r report_cor(df_analysis$nfc, df_analysis$erq_supp)`. Regarding coping (H1c), there was `r classify_r(df_analysis$nfc, df_analysis$sci_a)` relation with *adaptive coping*, `r report_cor(df_analysis$nfc, df_analysis$sci_a)`, and `r classify_r(df_analysis$nfc, df_analysis$sci_ma)` correlation with *maladaptive coping*, `r report_cor(df_analysis$nfc, df_analysis$sci_ma)`. The burnout dimension *reduced personal efficiency* showed `r classify_r(df_analysis$nfc, df_analysis$mbi_rpe)` relationship with NFC, `r report_cor(df_analysis$nfc, df_analysis$mbi_rpe)` (H1d), `r classify_r(df_analysis$scs, df_analysis$mbi_rpe)` relationship with self-control, `r report_cor(df_analysis$scs, df_analysis$mbi_rpe)` (H1e), `r classify_r(df_analysis$erq_reap, df_analysis$mbi_rpe)` relationship with the habitual use of the emotion regulation strategy *reappraisal*, `r report_cor(df_analysis$erq_reap, df_analysis$mbi_rpe)` and `r classify_r(df_analysis$erq_supp, df_analysis$mbi_rpe)` relationship with *suppression*, `r report_cor(df_analysis$erq_supp, df_analysis$mbi_rpe)` (H1f). Finally, there was `r classify_r(df_analysis$sci_a, df_analysis$mbi_rpe)` correlation with *adaptive coping*, `r report_cor(df_analysis$sci_a, df_analysis$mbi_rpe)` and `r classify_r(df_analysis$sci_ma, df_analysis$mbi_rpe)` correlation with *maladaptive coping*, `r report_cor(df_analysis$sci_ma, df_analysis$mbi_rpe)` (H1g).
 
-Research question 1 addressed possible relationships between Need for Cognition (NFC), self-control, adaptive and maladaptive coping strategies, the emotion regulation strategies reappraisal and suppression, as well as the burnout dimension reduced personal efficacy.
+### Research Question 2
+Concerning the burnout dimension *emotional exhaustion*, we observed correlations with all variables of interest, i.e., NFC, `r report_cor(df_analysis$nfc, df_analysis$mbi_ee)`, self-control, `r report_cor(df_analysis$scs, df_analysis$mbi_rpe)`, adaptive and maladaptive coping strategies, `r report_cor(df_analysis$sci_a, df_analysis$mbi_rpe)` and `r report_cor(df_analysis$sci_ma, df_analysis$mbi_rpe)`, as well as with the emotion regulation strategies reappraisal and suppression, `r report_cor(df_analysis$erq_reap, df_analysis$mbi_rpe)` and `r report_cor(df_analysis$erq_supp, df_analysis$mbi_rpe)`.
 
-There was `r classify_r(df_analysis$nfc, df_analysis$scs)` relationship between NFC and self-control (H1a), `r report_cor(df_analysis$nfc, df_analysis$scs)`. Concerning habitually used emotion regulation strategies (H1b), there was no relation with NFC, neither for *reappraisal*, `r report_cor(df_analysis$nfc, df_analysis$erq_reap)`, nor for *suppression*, `r report_cor(df_analysis$nfc, df_analysis$erq_supp)`. Regarding coping (H1c), there was `r classify_r(df_analysis$nfc, df_analysis$sci_a)` relation with *adaptive coping*, `r report_cor(df_analysis$nfc, df_analysis$sci_a)`, and `r classify_r(df_analysis$nfc, df_analysis$sci_ma)` relation with *maladaptive coping*, `r report_cor(df_analysis$nfc, df_analysis$sci_ma)`. The burnout dimension *reduced personal efficiency* showed `r classify_r(df_analysis$nfc, df_analysis$mbi_rpe)` relationship with NFC, `r report_cor(df_analysis$nfc, df_analysis$mbi_rpe)` (H1d), `r classify_r(df_analysis$scs, df_analysis$mbi_rpe)` relationship with self-control, `r report_cor(df_analysis$scs, df_analysis$mbi_rpe)` (H1e), `r classify_r(df_analysis$erq_reap, df_analysis$mbi_rpe)` relationship with the habitual use of the emotion regulation strategy *reappraisal*, `r report_cor(df_analysis$erq_reap, df_analysis$mbi_rpe)` and `r classify_r(df_analysis$erq_supp, df_analysis$mbi_rpe)` relationship with *suppression*, `r report_cor(df_analysis$erq_supp, df_analysis$mbi_rpe)` (H1f). Finally, there was `r classify_r(df_analysis$sci_a, df_analysis$mbi_rpe)` relationship with *adaptive coping*, `r report_cor(df_analysis$sci_a, df_analysis$mbi_rpe)` and `r classify_r(df_analysis$sci_ma, df_analysis$mbi_rpe)` relationship with *maladaptive coping*, `r report_cor(df_analysis$sci_ma, df_analysis$mbi_rpe)` (H1g).
+### Research Question 3
+Regarding the burnout dimension *depersonalization*, no significant correlations were found for NFC, `r report_cor(df_analysis$nfc, df_analysis$mbi_de)`, and self-control, `r report_cor(df_analysis$scs, df_analysis$mbi_de)`, while there were significant relationships with adaptive and maladaptive coping strategies, `r report_cor(df_analysis$sci_a, df_analysis$mbi_de)` and `r report_cor(df_analysis$sci_ma, df_analysis$mbi_de)`, as well as with reappraisal and suppression, `r report_cor(df_analysis$erq_reap, df_analysis$mbi_de)` and `r report_cor(df_analysis$erq_supp, df_analysis$mbi_de)`. 
 
-## Research Question 2
+```{r mediation, echo = F, warning = F}
 
-Concerning the question whether there were relationships between NFC, self-control, adaptive and maladaptive coping strategies, the emotion regulation strategies reappraisal and suppression, as well as the burnout dimension emotional exhaustion, we observed small to large intercorrelations 
+model_rpe = "
+  # direct effect
+    mbi_rpe ~ c*nfc
+  # mediators
+    scs ~ a1*nfc
+    erq_reap ~ a2*nfc
+    erq_supp ~ a3*nfc
+    sci_adapt ~ a4*nfc
+    sci_maladapt ~ a5*nfc
+    mbi_rpe ~ b1*scs + b2*erq_reap + b3*erq_supp + b4*sci_adapt + b5*sci_maladapt
+  # indirect effects 
+    ind1 := a1*b1
+    ind2 := a2*b2
+    ind3 := a3*b3
+    ind4 := a4*b4
+    ind5 := a5*b5
+  # total effect
+    total := ind1 + ind2 + ind3 + ind4 + ind5 + c
+"
 
-RQ3: Is there a relationship between NFC, self-control, adaptive and maladaptive coping strategies, the emotion regulation strategies reappraisal and suppression, as well as the burnout dimension depersonalization?
+fit_rpe=sem(model_rpe, df_analysis, estimator="MLR")
+#summary(fit_rpe, standardized = T, ci = T)
+
+report_pe <-  function(fit, label=NULL, txt = F) {
+  pe=parameterEstimates(fit, standardized = T)[,c("label", "est", "se", "ci.lower", "ci.upper", "pvalue", "std.all")]
+  if (is.null(label)) {
+    result = pe
+  } else {
+    result = pe[which(pe[,1]==label),]
+  }
+  if (txt == T & length(label) == 1) {
+    if (result$pvalue < .001) { p = " < .001" } else { p = paste0(" = ", printp(result$pvalue)) }
+    result = paste0("$B=$ ", printnum(result$est, gt1=T), ", $SE=$ ", printnum(result$se, gt1=T), ", 95% CI [", printnum(result$ci.lower, gt1=T), ", ", printnum(result$ci.upper, gt1=T), "], $p$ ", p, ", $\\beta=$ ", printnum(result$std.all, gt1 = F))
+  }
+  return(result)
+}
+
+```
+
+Figure 1 provides the results of our research questions regarding possible mediation effects  of the relation between NFC and the burnout dimensions reduced *personal efficiency* (Figure 1A), *emotional exhaustion* (Figure 1B), and *depersonalization* (Figure 1C). <!-- or three separate figures? -->
+
+The total effect was `r report_pe(fit_rpe, c('c'), txt=T)`.
 
 # Discussion
 
