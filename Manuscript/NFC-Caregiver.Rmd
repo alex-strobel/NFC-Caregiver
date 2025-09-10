@@ -166,20 +166,7 @@ RQ6: To what extent do self-control, adaptive and maladaptive coping strategies,
 We report how we determined our sample size, all data exclusions, all manipulations, and all measures in the study [cf. @Simmons-2012]. 
 
 ## Procedure
-The preregistration of the current study is available at https://osf.io/d6y9k.
-Data acquisition took place at two separate assessment occasions in the context of academic thesis projects [@Kadur-2018; @Ziessler-2019].
-For the 2018 investigation (ref. V-259-15-AS-NFC-28032018), the Ethics Committee of Chemnitz University of Technology found no ethical relevance, so no full application was required. 
-For the 2019 study (ref. V-336-15-AS-Ressourcen-16052019), a full application was submitted and positively reviewed, with no ethical concerns raised.
-To recruit participants, recruitment letters were sent to clinics, residential and retirement homes, institutes for higher education, and other health facilities across several German cities in the federal states of Saxony and Hesse. 
-Additionally, multiple calls for participants were made on social media platforms, such as Facebook and WhatsApp, and recruitment letters were emailed to friends and acquaintances working in the field of healthcare. 
-Eligibility requirements for the study included a minimum age of 18 years, proficiency in the German language, and current employment in a healthcare profession.
-Data were assessed via anonymous, cross-sectional online surveys using the Enterprise Feedback Suite Survey platform [EFS, @Questback-2017].
-Participants were informed about the study’s objectives, duration, and data security.
-Further, they were given the opportunity to participate in a cash raffle, where €25 were handed out to two participants for every 100 individuals who took part in the study. 
-As additional reimbursement, participants were offered to receive the study results on request as well as information on the personal and work-related risk factors of burnout.
-Before the subjects reported demographic information and completed the questionnaires, participants declared their consent for data security and study participation. 
-At the end of the survey, a control item was included to ensure that participants indicated whether they answered the questions sincerely. 
-Finally, those interested in the raffle could provide their email address which was recorded separately from the scientific data.
+The study was preregistered at https://osf.io/d6y9k. Data were collected in two thesis projects [@Kadur-2018; @Ziessler-2019]. For the 2018 study (ref. V-259-15-AS-NFC-28032018), the Ethics Committee of Chemnitz University of Technology waived a full review; the 2019 study (ref. V-336-15-AS-Ressourcen-16052019) received approval without concerns. Participants (age $\ge$ 18 years, German-speaking, employed in healthcare) were recruited via clinics, care facilities, and universities  across the German dederal states of Saxony and Hesse as well as via social media and personal contacts. Data were gathered anonymously through online Enterprise Feedback Suite Survey platform (EFS,  [@Questback-2017]). A control item checked response sincerity. Participants received study information, gave informed consent, and could enter a raffle (€25 per 100 participants), request study results, and obtain information on burnout risk factors. Emails for the raffle were stored separately from survey data.
 
 ## Participants
 
@@ -196,7 +183,7 @@ After the exclusion of participants because of incorrect scale labeling, missing
 The majority of participants worked as nurses (`r profession(1)`%), while `r profession(5)`% held management positions in healthcare. 
 Others were employed as social workers (`r profession(4)`%), psychotherapists (`r profession(3)`%), and other therapeutic professions such as occupational therapist or healthcare volunteers. 
 Detailed demographic data are provided in Supplementary Table S1. <!-- create Table S1 -->
-In both studies, the sample sizes were constrained by the number of participants that could be recruited during the limited timeframe of the respective thesis projects. **Post-hoc power analysis of achieved power ...** <!-- add post-hoc analysis of achieved power, either via G\*Power or via simulations (better) --> 
+In both studies, the sample sizes were constrained by the number of participants that could be recruited during the limited timeframe of the respective thesis projects. A post-hoc power analysis ($t-$test, linear multiple regression, fixed model, single regression coefficient) was conducted using G\*Power [@Faul-2007]. The smallest standardized indirect effect from the mediation analysis in Grass et al. (2018) was $|\beta|=.05$, yieling $f^2=\beta/(1-\beta)=.05$. With a sample size of $N=642$, we achieved a power of >.99 to detect such an effect at $\alpha<.05$. <!-- analysis with G\*Power as in preregistration, but via simulations would perhaps be more suitable? --> 
 
 ## Material
 
