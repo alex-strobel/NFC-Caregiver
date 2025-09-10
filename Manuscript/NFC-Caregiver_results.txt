@@ -1,0 +1,30 @@
+# Results  
+
+Table 1 shows bivariate Spearman correlations between the study variables. Results for research questions 1–3 are summarized below.  
+
+### Research Question 1  
+We examined links between Need for Cognition (NFC), self-control, coping strategies, reappraisal, suppression, and *reduced personal efficacy*. NFC correlated with self-control (H1a), but not with reappraisal or suppression (H1b). NFC was related to both adaptive and maladaptive coping (H1c). *Reduced personal efficacy* correlated with NFC (H1d), self-control (H1e), reappraisal and suppression (H1f), as well as adaptive and maladaptive coping (H1g).  
+
+### Research Question 2  
+*Emotional exhaustion* correlated with all variables: NFC, self-control, both coping strategies, reappraisal, and suppression.  
+
+### Research Question 3  
+For *depersonalization*, no correlations emerged for NFC or self-control, but significant ones appeared for both coping strategies, reappraisal, and suppression.  
+
+---
+
+Figures 1–3 summarize the mediation analyses (research questions 4–6). Only standardized coefficients and $p$-values are reported; full statistics appear in Tables 2–4.  
+
+### Research Question 4  
+Figure 1 and Table 2 present the mediation model for *reduced personal efficacy*. Roughly half of the total effect stemmed from the direct path NFC → efficacy.  
+- H4a: NFC predicted self-control, but self-control did not predict efficacy → no mediation.  
+- H4b: Reappraisal partly mediated the NFC–efficacy link.  
+- H4c: Suppression showed no mediation.  
+- H4d: Adaptive coping mediated the effect.  
+- H4e: Maladaptive coping was not supported.  
+
+### Research Question 5  
+Figure 2 and Table 3 show the model for *emotional exhaustion*. Less than half of the total effect reflected the direct path. Mediation occurred for adaptive and maladaptive coping, but not for self-control, reappraisal, or suppression.  
+
+### Research Question 6  
+Figure 3 and Table 4 show the model for *depersonalization*. About one third of the total effect reflected the direct path. Again, mediation was found for adaptive and maladaptive coping, but not for self-control, reappraisal, or suppression.  

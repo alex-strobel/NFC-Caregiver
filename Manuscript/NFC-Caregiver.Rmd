@@ -3,34 +3,39 @@ title             : "Need for Cognition and Burnout in healthcare: The mediating
 shorttitle        : "NFC and Burnout in healthcare"
 
 author: 
-  - name          : "Kea Rüter"
+  - name          : "Alexander Strobel"
     affiliation   : "1"
+    role:
+      - "Conceptualization"
+      - "Writing - Original Draft"
+      - "Writing - Review & Editing"
+      - "Formal Analysis"
+      - "Visualization"
+      - "Data Curation"
+      
+  - name          : "Kea Rüter"
+    affiliation   : "2"
     role: # Contributorship roles (e.g., CRediT, https://credit.niso.org/)
       - "Writing - Original Draft"
       - "Data Curation"
       - "Formal Analysis"
-  - name          : "Alexander Strobel"
-    affiliation   : "2"
-    role:
-      - "Conceptualization"
-      - "Writing - Review & Editing"
-      - "Supervision"
+
   - name          : "Anja Strobel"
-    affiliation   : "1"
+    affiliation   : "2"
     corresponding : yes
     address       : "Technische Universität Chemnitz, Department of Psychology, Wilhelm-Raabe-Straße 43, 09120 Chemnitz, Germany"
     email         : "anja.strobel@psychologie.tu-chemnitz.de"
-    
     role:
       - "Conceptualization"
       - "Writing - Review & Editing"
+      - "Project Administration"
       - "Supervision"
 
 affiliation:
   - id            : "1"
-    institution   : "Department of Psychology, Technische Universität Chemnitz, Chemnitz, Germany"
-  - id            : "2"
     institution   : "Faculty of Psychology, Technische Universität Dresden, Dresden, Germany"
+  - id            : "2"
+    institution   : "Department of Psychology, Technische Universität Chemnitz, Chemnitz, Germany"
 
 authornote: |
   Alexander Strobel: https://orcid.org/0000-0002-9426-5397
@@ -46,7 +51,7 @@ abstract: |
   For this purpose, multiple mediation models, using a sample of N = 642 healthcare workers were examined. 
   The incorporated predictor was Need for Cognition (an intrinsic motivation to engage with cognitively demanding thoughts). 
   Mediators were self-control, the emotion regulation strategies reappraisal and suppression, as well as adaptive and maladaptive coping strategies. 
-  The burnout subdimensions reduced personal efficacy, emotional exhaustion, and depersonalization each functioned individually as outcome variables. 
+  The burnout subdimensions reduced personal efficiency, emotional exhaustion, and depersonalization each functioned individually as outcome variables. 
   In addition to the mediation analyses, correlation analyses of these variables were also calculated. 
   The results confirmed that adaptive coping strategies functioned preventively across all burnout dimensions. 
   Furthermore, reappraisal and maladaptive coping mediated the relationship between NFC and some subdimensions of burnout. 
@@ -75,10 +80,12 @@ output            : papaja::apa6_pdf
 ---
 
 ```{r setup, include = FALSE}
+library("dplyr")   # for data manipulation 
 library("here")    # for avoiding path edits
 library("lavaan")  # for mediation analysis
 library("papaja")  # for manuscript creation
 library("psych")   # for descriptive statistics and correlation analysis
+library("shape")   # for Arrows()
 
 r_refs("r-references.bib")
 ```
@@ -115,9 +122,9 @@ The following section explains the mediation model and its variables.
 ...
 
 ### Correlational Research Questions and Hypotheses
+<!-- deliberate on whether/how we want to state the hypotheses; note that the results part aligns strongly to these hypotheses -->
 
-
-RQ1: Is there a relationship between Need for Cognition (NFC), self-control, adaptive and maladaptive coping strategies, the emotion regulation strategies reappraisal and suppression, as well as the burnout dimension reduced personal efficacy (rPE)?
+RQ1: Is there a relationship between Need for Cognition (NFC), self-control, adaptive and maladaptive coping strategies, the emotion regulation strategies reappraisal and suppression, as well as the burnout dimension reduced personal efficiency (rPE)?
 
 - H1a: There will be a moderate positive relationship between NFC and self-control.
 
@@ -139,7 +146,6 @@ RQ3: Is there a relationship between NFC, self-control, adaptive and maladaptive
 
 ### Mediational Research Questions and Hypotheses
 
-
 RQ4: To what extent do self-control, adaptive and maladaptive coping strategies, as well as the emotion regulation strategies reappraisal and suppression mediate the relationship between NFC and the burnout dimension rPE?
 
 - H4a: The relationship between NFC and rPE will not be mediated by self-control. However, higher NFC will be associated with more self-control, whereby self-control will not be associated with rPE.
@@ -159,7 +165,7 @@ RQ6: To what extent do self-control, adaptive and maladaptive coping strategies,
 # Methods
 We report how we determined our sample size, all data exclusions, all manipulations, and all measures in the study [cf. @Simmons-2012]. 
 
-## Study design
+## Procedure
 The preregistration of the current study is available at https://osf.io/d6y9k.
 Data acquisition took place at two separate assessment occasions in the context of academic thesis projects [@Kadur-2018; @Ziessler-2019].
 For the 2018 investigation (ref. V-259-15-AS-NFC-28032018), the Ethics Committee of Chemnitz University of Technology found no ethical relevance, so no full application was required. 
@@ -186,15 +192,16 @@ profession <- function(label = 1) {
   }
 ```
 <!-- -->
-After the exclusion of participants because of incorrect scale labeling, missing consent to be interviewed, double participation, not having answered the questions seriously, not working in healthcare workers or not being educated to do so, or having taken less than the average time to complete the questionnaires (see pregistration https://osf.io/d6y9k, section Data exclusion for details), the usable subsamples comprised $n_{2018}=431$, and $n_{2019}=229$ participants<!-- can these figures be found somewhere in the raw or preprocessed data? -->. The resulting total sample therefore consited of $N=$ `r nrow(data_ZK)` (`r paste(table(unclass(data_ZK$sex)), c("female", "male", "diverse"), collapse = ", ")`; age range `r paste(range(data_ZK$age), collapse = " to ")` years, $M=$ `r printnum(mean(data_ZK$age), digits = 1)`, $SD=$ `r printnum(sd(data_ZK$age), digits = 1)` years). 
+After the exclusion of participants because of incorrect scale labeling, missing consent to be interviewed, double participation, not having answered the questions seriously, not working in a healthcare profession or not being educated to do so, or having taken less than the average time to complete the questionnaires (see pregistration https://osf.io/d6y9k, section Data exclusion for details), the usable subsamples comprised $n_{2018}=431$, and $n_{2019}=229$ participants<!-- can these figures be found somewhere in the raw or preprocessed data? -->. The resulting total sample therefore consisted of $N=$ `r nrow(data_ZK)` (`r paste(table(unclass(data_ZK$sex)), c("female", "male", "diverse"), collapse = ", ")`; age range `r paste(range(data_ZK$age), collapse = " to ")` years, $M=$ `r printnum(mean(data_ZK$age), digits = 1)`, $SD=$ `r printnum(sd(data_ZK$age), digits = 1)` years). 
 The majority of participants worked as nurses (`r profession(1)`%), while `r profession(5)`% held management positions in healthcare. 
 Others were employed as social workers (`r profession(4)`%), psychotherapists (`r profession(3)`%), and other therapeutic professions such as occupational therapist or healthcare volunteers. 
 Detailed demographic data are provided in Supplementary Table S1. <!-- create Table S1 -->
-In both studies, the sample sizes were constrained by the number of participants that could be recruited during the limited timeframe of the respective thesis projects. Post-hoc power analysis of achieved power ... <!-- add post-hoc analysis of achieved power, either via G*+*Power or via simulations (better) --> 
+In both studies, the sample sizes were constrained by the number of participants that could be recruited during the limited timeframe of the respective thesis projects. **Post-hoc power analysis of achieved power ...** <!-- add post-hoc analysis of achieved power, either via G\*Power or via simulations (better) --> 
 
 ## Material
 
-```{r omega, echo = FALSE, warning = F}
+```{r reliabilities, echo = FALSE, warning = F}
+# function for determining McDonald's omega and Cronbach's alpha
 ao <- function(df) {
   options( warn = -1 )
   o = print_num(psych::omega(df, plot = F)$omega.tot, gt1 = F)
@@ -202,47 +209,13 @@ ao <- function(df) {
   return(paste0(o, " (", a, ")"))
 }
 
+# following code needed ???
 rel_mbi = ao(as.matrix(preprocessed_data[grep("mbi", colnames(preprocessed_data))]))
 
-```
-All questionnaires used were administered in German language. 
-The reliabilities (MacDonald’s $\omega$ and Cronbach's $\alpha$) of the inventories used can be found in Table 1.
-The burnout dimensions *reduced personal efficiency*, *emotional exhaustion*, and *depersonalization* were assessed using the German version of the 22-item Maslach Burnout Inventory [MBI-D, @Buessing-1992]. 
-Items such as “I feel burned out by my job.” were rated on a scale from 1 (does not occur at all) to 6 (occurs very often/strongly). 
-The internal consistencies of the MBI-D showed good to excellent reliabilities, MacDonald's $omega$ = `r rel_mbi`.
- 
-For clearer classification of each subdimension's individual expressions, @Dreher-2019 provided specific values, where high burnout expression is classified at rPE values > 24, EE values > 22, and DE values > 8.
-
-NFC was assessed with the 16-item short version of the German NFC scale [NCS, @Bless-1994] with items like “I like it when my life is full of tricky tasks that I have to solve.” These items were rated on a seven-point rating scale ranging from +3 (very accurate) to –3 (completely inaccurate). 
-The scale demonstrated an excellent internal consistency of MacDonald’s $\omega$ . 
-
-Self-control was measured by the 13-item short form of the Self-Control Scale [SCS-K-D, @Bertrams-2009]. 
-Here, a five-point Likert scale from 1 (completely inaccurate) to 5 (completely accurate) was used to answer questions like "I am good at resisting temptations."
-This scale showed an acceptable internal consistency of MacDonald’s $\omega$ > .79.
-
-Further, the Emotion Regulation Questionnaire [ERQ-D, @Abler-2009], which included 10 items, was used to assess reappraisal and suppression. Reappraisal was measured by items like "When I get into a stressful situation, I change my thoughts about the situation, so it calms me down." 
-Suppression was determined by items such as "I keep my feelings to myself." 
-Participants responded on a scale ranging from 1 (not true at all) to 7 (absolutely true).
-The subscale that assessed reappraisal contained six items and achieved good reliability (MacDonald’s $\omega$ > .86).
-The four-item suppression subscale of the ERQ-D also reached good reliability with MacDonald’s $\omega$ > .81.
-
-Finally (and differing from the material used by @Grass-2018), the 20-item Stress and Coping Inventory [SCI, @Satow-2012] was used to measure adaptive as well as maladaptive coping strategies.
-Adaptive coping was assessed by the subscales “positive thinking”, “active stress management”, “social support”, and “holding on to faith”. 
-These subscales, consisting of 16 items such as "When stress and pressure arise, I directly address the causes," altogether demonstrated an internal consistency of MacDonald’s Omega $\omega$ = .85. 
-Maladaptive coping was measured with the “increased alcohol and cigarette consumption” subscale, containing items like "When I am under too much stress, I smoke a cigarette." The items were rated from 1 (does not apply) to 4 (applies exactly). 
-This subscale had a questionable internal consistency of MacDonald’s Omega $\omega$ = .63.
-
-## Procedure 
-<!-- include? because above is already a paragraph study design ... -->
-
-...
-
-## Statistical analyses
-We used `r cite_r("r-references.bib")` for all our analyses. <!-- check which pkgs were actually used, perhaps move full list of pkgs in supplement -->
-
-```{r data, echo = F} 
+# calculate MacDonald's omega and Cronbach's alpha for all scales
 scales = c("mbi", "mbi_rpe", "mbi_ee", "mbi_de", "nfc", "sc", "ers_[re|su]", "ers_re", "ers_su", "adapt_", "^adapt_", "^maladapt_")
 alphas = omegas = NULL
+
 for (i in 1:length(scales)) {
   omg=omega(preprocessed_data[grep(scales[i], colnames(preprocessed_data))], plot = F)
   alphas = c(alphas, omg$alpha)
@@ -252,31 +225,38 @@ for (i in 1:length(scales)) {
 rel = data.frame(a=alphas, o=omegas)
 rownames(rel) = scales
 
-print_rel = print_num(rel, gt1 = F)
+```
+All questionnaires used were administered in German language. 
+The reliabilities (MacDonald’s $\omega$ and Cronbach's $\alpha$) of the inventories used can be found in Table 1.
+The burnout dimensions *reduced personal efficiency*, *emotional exhaustion*, and *depersonalization* were assessed using the German version of the 22-item Maslach Burnout Inventory [MBI-D, @Buessing-1992]. 
+Items such as “I feel burned out by my job.” were rated on a scale from 1 (does not occur at all) to 6 (occurs very often/strongly). 
+The internal consistencies of the MBI-D subscales showed good to excellent reliabilities, MacDonald's $\omega\ge$ = `r printnum(min(rel$o[1:4]), gt1 = F)`.
 
-rel_diag = paste0(print_rel$o, " (", print_rel$a, ")")
+NFC was assessed with the 16-item short version of the German NFC scale [NCS, @Bless-1994] with items like “I like it when my life is full of tricky tasks that I have to solve.” These items were rated on a seven-point rating scale ranging from +3 (very accurate) to –3 (completely inaccurate). 
+The scale demonstrated an excellent internal consistency of MacDonald’s $\omega=$ `r printnum(rel$o[which(rownames(rel)=="nfc")], gt1 = F)`. 
 
-# correlations
-ct_ZK=corr.test(score_ZK[ , c(11,13,12,14:22)], method = "spearman", adjust = "none")
-ct = print_num(ct_ZK$r, gt1 = F)
-ct[upper.tri(ct)] = ""
-diag(ct) = rel_diag
-rownames(ct) = c("1. MBI", "2. MBI RPE", "3. MBI EE", "4. MBI DE", "5. NFC", "6. SCS", "7. ERQ", "8. ERQ R", "9. ERQ S", "10. SCI", "11. SCI A", "12. SCI MA")
-colnames(ct) = paste(1:12)
+Self-control was measured by the 13-item short form of the Self-Control Scale [SCS-K-D, @Bertrams-2009]. 
+Here, a five-point Likert scale from 1 (completely inaccurate) to 5 (completely accurate) was used to answer questions like "I am good at resisting temptations."
+This scale showed an acceptable internal consistency of MacDonald’s $\omega=$ `r printnum(rel$o[which(rownames(rel)=="sc")], gt1 = F)`.
 
-#descriptives
-dt = t(print_num(describe(score_ZK[ , c(11,13,12,14:22)])[, c(3:4, 8, 9, 11, 12)]))
-rownames(dt) = c("Mean", "SD", "Min", "Max", "Skew", "Kurtosis")
-colnames(dt) = paste(1:12)
+Further, the Emotion Regulation Questionnaire [ERQ-D, @Abler-2009], which included 10 items, was used to assess reappraisal and suppression. Reappraisal was measured by items like "When I get into a stressful situation, I change my thoughts about the situation, so it calms me down." 
+Suppression was determined by items such as "I keep my feelings to myself." 
+Participants responded on a scale ranging from 1 (not true at all) to 7 (absolutely true).
+The six-item reappraisal subscale and the four-item suppression subscale showed good reliability with MacDonald’s $\omega\ge$ `r printnum(min(rel$o[which(rownames(rel) == "ers_re" | rownames(rel) == "ers_su")]), gt1 = F)`.
 
-apa_table(list(ct, dt), landscape = T, midrules = 12, format.args = list(gt1 = F), align = c("l",rep("r", 12)), font_size = "scriptsize",
-          caption = "Spearman correlations and internal consistencies of the questionnaire scores (outliers included)",
-          note = "\\textit{N} = 642. The 95\\% CI does not include zero for $|r_{s}|\\geq$ .077. The diagonal provides MacDonald’s $\\omega$ and Cronbach’s $\\alpha$ (in brackets). MBI = Maslach Burnout Inventory; MBI RPE = Reduced Personal Efficacy subscale; MBI EE = Emotional Exhaustion subscale; MBI DE = Depersonalisation subscale; NFC = Need for Cognition Scale; SCS = Self Control Scale; ERQ = Emotion Regulation Questionnaire; ERQ R = Reappraisal subscale; ERQ S = Suppression subscale; SCI = Stress and Coping Inventory; SCI A = Adaptive coping subscales; SCI MA = Maladaptive coping subscale",
-          escape = F)
+Finally (and differing from the material used by @Grass-2018), the 20-item Stress and Coping Inventory [SCI, @Satow-2012] was used to measure adaptive and maladaptive coping strategies on a scale ranging from 1 (does not apply) to 4 (applies exactly).
+Adaptive coping was assessed by the subscales “positive thinking”, “active stress management”, “social support”, and “holding on to faith”. 
+These subscales, consisting of 16 items such as "When stress and pressure arise, I directly address the causes," altogether demonstrated a good  internal consistency, MacDonald’s Omega $\omega=$ `r printnum(min(rel$o[which(rownames(rel) == "^adapt_")]), gt1 = F)`. 
+Maladaptive coping was measured with the “increased alcohol and cigarette consumption” subscale, containing four items like "When I am under too much stress, I smoke a cigarette." 
+This subscale had a questionable internal consistency of MacDonald’s $\omega=$ `r printnum(min(rel$o[which(rownames(rel) == "^maladapt_")]), gt1 = F)`.
+
+## Statistical analyses
+We used `r cite_r("r-references.bib")` for all our analyses.
+
+```{r normality, echo = F} 
 
 # retain only variables of interest (MBI subscales, NFC, Self-Control, emotion regulation strategies, and coping styles) 
 df_analysis = score_ZK[, c("mbi_ee", "mbi_rpe", "mbi_de", "nfc", "scs", "erq_reap", "erq_supp", "sci_adapt", "sci_maladapt")]
-
 
 # tests for univariate and multivariate normality
 
@@ -326,33 +306,60 @@ classify_r <- function(x1, x2) {
 }
 
 ```
-Robust tests were used to account for deviation from univariate and multivariate normality of the variables of interest, i.e. the MBI subscales, NFC, self-control, emotion regulation strategies, and coping styles; Shapiro-Wilk and Mardia tests, all $p>.001$). Therefore, Spearman correlations were calculated in order to address the research questions (RQ) regarding the bivariate relationships between Need for Cognition (NFC), self-control, adaptive and maladaptive coping strategies, the emotion regulation strategies reappraisal and suppression with the burnout dimensions *reduced personal efficacy* (rPE; RQ1), *emotional exhaustion* (EE; RQ2), and *depersonalization* (DE; RQ3). Statistical significance were evaluated based on whether the 95% CI of the correlations did not include zero, which with our sample size was the case for all $|r_{s}\ge.077|$. Effect size classification followed empirically derived thresholds [@Gignac-2016], i.e., $r_{s} \ge$ .10, .20, and .30 denote small, medium, and large correlations. To address the research questions on possible mediation effects, i.e., whether self-control, adaptive and maladaptive coping strategies, as well as emotion regulation strategies reappraisal and suppression mediate the relationship between NFC and the burnout dimensions rPE (RQ4), EE (RQ5), and DE (RQ6), multiple mediation models were tested using *lavaan* with robust Maximum Likelihood estimation of standard errors. <!-- thresholds for fit indices (Hu & Bentler)??? -->
+Robust tests were used to account for deviation from univariate and multivariate normality of the study variables, i.e. the MBI subscales, NFC, self-control, emotion regulation strategies, and coping styles; Shapiro-Wilk and Mardia tests, all $p\ge.001$). Spearman correlations were calculated to address the research questions (RQ) regarding bivariate relationships between Need for Cognition (NFC), self-control, adaptive and maladaptive coping strategies, the emotion regulation strategies reappraisal and suppression with the burnout dimensions *reduced personal efficiency* (rPE; RQ1), *emotional exhaustion* (EE; RQ2), and *depersonalization* (DE; RQ3). Statistical significance was evaluated based on the correlations' 95% CI not including zero, which with our sample size was the case for all $|r_{s}|\ge.077$. Effect size classification followed empirically derived thresholds [@Gignac-2016], i.e., $r_{s} \ge$ .10, .20, and .30 for small, medium, and large correlations. To address the research questions on possible mediation effects, i.e., whether self-control, reappraisal and suppression, and adaptive and maladaptive coping mediate the relationship between NFC and the burnout dimensions rPE (RQ4), EE (RQ5), and DE (RQ6), multiple mediation models were tested using *lavaan* with robust Maximum Likelihood estimation of standard errors.
 
 # Results
 
-Table 1 one provides the bivariate Spearman correlation coefficients between the variables of interest. In the following, the results of the correlation analyses for research questions 1-3 are reported. 
+```{r RQ1-3, echo = F, warning = F}
 
-### Research Question 1
-Here, we addressed possible relationships between Need for Cognition (NFC), self-control, adaptive and maladaptive coping strategies, the emotion regulation strategies reappraisal and suppression, as well as the burnout dimension *reduced personal efficacy*. We observed `r classify_r(df_analysis$nfc, df_analysis$scs)` correlation between NFC and self-control (H1a), `r report_cor(df_analysis$nfc, df_analysis$scs)`. Concerning habitually used emotion regulation strategies (H1b), there was no relation with NFC, neither for *reappraisal*, `r report_cor(df_analysis$nfc, df_analysis$erq_reap)`, nor for *suppression*, `r report_cor(df_analysis$nfc, df_analysis$erq_supp)`. Regarding coping (H1c), there was `r classify_r(df_analysis$nfc, df_analysis$sci_a)` relation with *adaptive coping*, `r report_cor(df_analysis$nfc, df_analysis$sci_a)`, and `r classify_r(df_analysis$nfc, df_analysis$sci_ma)` correlation with *maladaptive coping*, `r report_cor(df_analysis$nfc, df_analysis$sci_ma)`. The burnout dimension *reduced personal efficiency* showed `r classify_r(df_analysis$nfc, df_analysis$mbi_rpe)` relationship with NFC, `r report_cor(df_analysis$nfc, df_analysis$mbi_rpe)` (H1d), `r classify_r(df_analysis$scs, df_analysis$mbi_rpe)` relationship with self-control, `r report_cor(df_analysis$scs, df_analysis$mbi_rpe)` (H1e), `r classify_r(df_analysis$erq_reap, df_analysis$mbi_rpe)` relationship with the habitual use of the emotion regulation strategy *reappraisal*, `r report_cor(df_analysis$erq_reap, df_analysis$mbi_rpe)` and `r classify_r(df_analysis$erq_supp, df_analysis$mbi_rpe)` relationship with *suppression*, `r report_cor(df_analysis$erq_supp, df_analysis$mbi_rpe)` (H1f). Finally, there was `r classify_r(df_analysis$sci_a, df_analysis$mbi_rpe)` correlation with *adaptive coping*, `r report_cor(df_analysis$sci_a, df_analysis$mbi_rpe)` and `r classify_r(df_analysis$sci_ma, df_analysis$mbi_rpe)` correlation with *maladaptive coping*, `r report_cor(df_analysis$sci_ma, df_analysis$mbi_rpe)` (H1g).
 
-### Research Question 2
-Concerning the burnout dimension *emotional exhaustion*, we observed correlations with all variables of interest, i.e., NFC, `r report_cor(df_analysis$nfc, df_analysis$mbi_ee)`, self-control, `r report_cor(df_analysis$scs, df_analysis$mbi_rpe)`, adaptive and maladaptive coping strategies, `r report_cor(df_analysis$sci_a, df_analysis$mbi_rpe)` and `r report_cor(df_analysis$sci_ma, df_analysis$mbi_rpe)`, as well as with the emotion regulation strategies reappraisal and suppression, `r report_cor(df_analysis$erq_reap, df_analysis$mbi_rpe)` and `r report_cor(df_analysis$erq_supp, df_analysis$mbi_rpe)`.
+# prepare reliabilities for Table 1 diagonal
+print_rel = print_num(rel, gt1 = F)
+rel_diag = paste0(print_rel$o, " (", print_rel$a, ")")
 
-### Research Question 3
-Regarding the burnout dimension *depersonalization*, no significant correlations were found for NFC, `r report_cor(df_analysis$nfc, df_analysis$mbi_de)`, and self-control, `r report_cor(df_analysis$scs, df_analysis$mbi_de)`, while there were significant relationships with adaptive and maladaptive coping strategies, `r report_cor(df_analysis$sci_a, df_analysis$mbi_de)` and `r report_cor(df_analysis$sci_ma, df_analysis$mbi_de)`, as well as with reappraisal and suppression, `r report_cor(df_analysis$erq_reap, df_analysis$mbi_de)` and `r report_cor(df_analysis$erq_supp, df_analysis$mbi_de)`. 
+# correlations
+ct_ZK=corr.test(score_ZK[ , c(11,13,12,14:22)], method = "spearman", adjust = "none")
+ct = print_num(ct_ZK$r, gt1 = F)
+ct[upper.tri(ct)] = ""
+diag(ct) = rel_diag
+rownames(ct) = c("1. MBI", "2. MBI RPE", "3. MBI EE", "4. MBI DE", "5. NFC", "6. SCS", "7. ERQ", "8. ERQ R", "9. ERQ S", "10. SCI", "11. SCI A", "12. SCI MA")
+colnames(ct) = paste(1:12)
+
+# descriptives
+dt = t(print_num(describe(score_ZK[ , c(11,13,12,14:22)])[, c(3:4, 8, 9, 11, 12)]))
+rownames(dt) = c("Mean", "SD", "Min", "Max", "Skew", "Kurtosis")
+colnames(dt) = paste(1:12)
+
+apa_table(list(ct, dt), landscape = T, midrules = 12, format.args = list(gt1 = F), align = c("l",rep("r", 12)), font_size = "scriptsize",
+          caption = "Spearman correlations and internal consistencies of the questionnaire scores (outliers included)",
+          note = "\\textit{N} = 642. The 95\\% CI does not include zero for $|r_{s}|\\geq$ .077. The diagonal provides MacDonald’s $\\omega$ and Cronbach’s $\\alpha$ (in brackets). MBI = Maslach Burnout Inventory; MBI RPE = Reduced Personal efficiency subscale; MBI EE = Emotional Exhaustion subscale; MBI DE = Depersonalisation subscale; NFC = Need for Cognition Scale; SCS = Self Control Scale; ERQ = Emotion Regulation Questionnaire; ERQ R = Reappraisal subscale; ERQ S = Suppression subscale; SCI = Stress and Coping Inventory; SCI A = Adaptive coping subscales; SCI MA = Maladaptive coping subscale",
+          escape = F)
+```
+
+Table 1 shows bivariate Spearman correlations between the study variables. Results for research questions 1–3 are summarized below.
+
+### Research Question 1  
+We examined links between Need for Cognition (NFC), self-control, the habitual use of the emotion strategies reappraisal and suppression, coping strategies, and *reduced personal efficiency*. We observed `r classify_r(df_analysis$nfc, df_analysis$scs)` correlation between NFC and self-control, `r report_cor(df_analysis$nfc, df_analysis$scs)` (H1a), but no correlation with reappraisal, `r report_cor(df_analysis$nfc, df_analysis$erq_reap)`, or suppression, `r report_cor(df_analysis$nfc, df_analysis$erq_supp)` (H1b). NFC showed `r classify_r(df_analysis$nfc, df_analysis$sci_a)` correlation with adaptive coping, `r report_cor(df_analysis$nfc, df_analysis$sci_a)`, and `r classify_r(df_analysis$nfc, df_analysis$sci_ma)` correlation with maladaptive coping, `r report_cor(df_analysis$nfc, df_analysis$sci_ma)` (H1c). *Reduced personal efficiency* correlated with NFC, `r report_cor(df_analysis$nfc, df_analysis$mbi_rpe)`, i.e. `r classify_r(df_analysis$nfc, df_analysis$mbi_rpe)` effect (H1d), self-control, `r report_cor(df_analysis$mbi_rpe, df_analysis$scs)`, i.e. `r classify_r(df_analysis$scs, df_analysis$mbi_rpe)` effect (H1e), reappraisal and suppression, `r report_cor(df_analysis$mbi_rpe, df_analysis$erq_reap)`, i.e. `r classify_r(df_analysis$erq_reap, df_analysis$mbi_rpe)` effect, and `r report_cor(df_analysis$mbi_rpe, df_analysis$erq_supp)`, i.e. `r classify_r(df_analysis$erq_supp, df_analysis$mbi_rpe)` effect (H1f), as well as adaptive and maladaptive coping, `r report_cor(df_analysis$mbi_rpe, df_analysis$sci_a)`, i.e. `r classify_r(df_analysis$sci_a, df_analysis$mbi_rpe)` effect, and `r report_cor(df_analysis$mbi_rpe, df_analysis$sci_ma)`, i.e. `r classify_r(df_analysis$sci_ma, df_analysis$mbi_rpe)` effect (H1g).
+
+### Research Question 2  
+*Emotional exhaustion* correlated with all variables: NFC, `r report_cor(df_analysis$mbi_ee, df_analysis$nfc)`, self-control, `r report_cor(df_analysis$mbi_ee, df_analysis$scs)`, reappraisal, `r report_cor(df_analysis$mbi_ee, df_analysis$erq_reap)`, and suppression, `r report_cor(df_analysis$mbi_ee, df_analysis$erq_supp)`, and both coping strategies, `r report_cor(df_analysis$mbi_ee, df_analysis$sci_a)`, and `r report_cor(df_analysis$mbi_ee, df_analysis$sci_ma)`.  
+
+### Research Question 3  
+For *depersonalization*, no correlations emerged for NFC, `r report_cor(df_analysis$mbi_de, df_analysis$nfc)`, or self-control, `r report_cor(df_analysis$mbi_de, df_analysis$scs)`, but significant ones appeared for reappraisal, `r report_cor(df_analysis$mbi_de, df_analysis$erq_reap)`, suppression, `r report_cor(df_analysis$mbi_de, df_analysis$erq_supp)`, as well as for both coping strategies, `r report_cor(df_analysis$mbi_de, df_analysis$sci_a)`, and `r report_cor(df_analysis$mbi_de, df_analysis$sci_ma)`.  
+
+Figures 1–3 summarize the mediation analyses (research questions 4–6). Only standardized coefficients and $p$-values are reported for ease of reading; full statistics appear in Tables 2–4. 
 
 ```{r mediation, echo = F, warning = F}
-
-model_rpe = "
+model_mbi = "
   # direct effect
-    mbi_rpe ~ c*nfc
+    mbi ~ c*nfc
   # mediators
     scs ~ a1*nfc
     erq_reap ~ a2*nfc
     erq_supp ~ a3*nfc
     sci_adapt ~ a4*nfc
     sci_maladapt ~ a5*nfc
-    mbi_rpe ~ b1*scs + b2*erq_reap + b3*erq_supp + b4*sci_adapt + b5*sci_maladapt
+    mbi ~ b1*scs + b2*erq_reap + b3*erq_supp + b4*sci_adapt + b5*sci_maladapt
   # indirect effects 
     ind1 := a1*b1
     ind2 := a2*b2
@@ -363,10 +370,28 @@ model_rpe = "
     total := ind1 + ind2 + ind3 + ind4 + ind5 + c
 "
 
-fit_rpe=sem(model_rpe, df_analysis, estimator="MLR")
-#summary(fit_rpe, standardized = T, ci = T)
+# specify rownames for data.frame
+rownames_df = c(
+  "\\textit{Direct effect of NFC on MBI}",
+  "a1: Self-Control",
+  "a2: Reappraisal",
+  "a3: Suppression",
+  "a4: Adaptive Coping",
+  "a5: Maladaptive Coping",
+  "b1: Self-Control",
+  "b2: Reappraisal",
+  "b3: Suppression",
+  "b4: Adaptive Coping",
+  "b5: Maladaptive Coping",
+  "ind1: Self-Control",
+  "ind2: Reappraisal",
+  "ind3: Suppression",
+  "ind4: Adaptive Coping",
+  "ind5: Maladaptive Coping",
+  "\\textit{Total effect}"
+)
 
-report_pe <-  function(fit, label=NULL, txt = F) {
+report_pe <-  function(fit, label=NULL, txt = F, beta_only = F) {
   pe=parameterEstimates(fit, standardized = T)[,c("label", "est", "se", "ci.lower", "ci.upper", "pvalue", "std.all")]
   if (is.null(label)) {
     result = pe
@@ -375,19 +400,152 @@ report_pe <-  function(fit, label=NULL, txt = F) {
   }
   if (txt == T & length(label) == 1) {
     if (result$pvalue < .001) { p = " < .001" } else { p = paste0(" = ", printp(result$pvalue)) }
+    if (beta_only == F) {
     result = paste0("$B=$ ", printnum(result$est, gt1=T), ", $SE=$ ", printnum(result$se, gt1=T), ", 95% CI [", printnum(result$ci.lower, gt1=T), ", ", printnum(result$ci.upper, gt1=T), "], $p$ ", p, ", $\\beta=$ ", printnum(result$std.all, gt1 = F))
+    } else {
+    result = paste0("$\\beta=$ ", printnum(result$std.all, gt1 = F), ", $p$", p)  
+    }
   }
   return(result)
 }
-
 ```
 
-Figure 1 provides the results of our research questions regarding possible mediation effects  of the relation between NFC and the burnout dimensions reduced *personal efficiency* (Figure 1A), *emotional exhaustion* (Figure 1B), and *depersonalization* (Figure 1C). <!-- or three separate figures? -->
 
-The total effect was `r report_pe(fit_rpe, c('c'), txt=T)`.
+```{r RQ4, echo = F, warning = F}
+# specify model for reduced personal efficiency (rpe)
+model_rpe = gsub("mbi", "mbi_rpe", model_mbi)
+
+# fit rpe model
+fit_rpe=sem(model_rpe, df_analysis, estimator="MLR")
+
+# create table with parameter estimates
+pe_rpe = parameterEstimates(fit_rpe, standardized = T)
+pe_rpe_table=printnum(pe_rpe[c(1:11,19:24),c("est","se","ci.lower", "ci.upper", "pvalue", "std.all")], digits = 3)
+
+# create data.frame for table
+df <- pe_rpe_table
+
+colnames(df) <- c("B","SE","CI.lower","CI.upper","p","beta")
+df$beta = sub("0.", ".", df$beta)
+
+rownames(df) <- gsub("MBI", "rPE", rownames_df)
+
+df <- df %>%
+  mutate(
+    p = ifelse(p == 0 | p == .000, "< .001",
+               ifelse(p < .001, "< .001",
+                      sub("^0\\.", ".", formatC(p, digits = 3, format = "f"))))
+  )
+
+colnames(df) = c("$B$", "$SE$", "$LB$", "$UB$", "$p$", "$\\beta$")
+apa_table(
+  df,
+  escape = F, align = c("l", rep("r",6)), font_size = "footnotesize", 
+  stub_indents = list(`\\textit{NFC to Mediators}` = 2:6,
+                      `\\textit{Mediators to rPE}` = 7:11,
+                      `\\textit{Indirect effects}` = 12:16),
+  midrules = c(1,7,13,19), 
+  caption = "Mediation of the effect of Need for Cognition (NFC) on reduced personal efficiency (rPE)",
+  note = "$N=642$. $B$ = unstandardized coefficient, $SE$ = standard error of $B$, $LB/UB$ = lower and upper bound of the 95\\% confidence interval, $p$ = $p$-value, $\\beta$ = standardized coefficient, a = paths from predictor to mediator, b = paths from mediator to outcome, ind = indirect effects a*b."
+)
+```
+
+### Research Question 4
+Figure 1 and Table 2 present the results of the multiple mediation analysis for *reduced personal efficiency*. Roughly half of the total effect, `r report_pe(fit_rpe, 'total', txt = T, beta_only = T)`, stemmed from the direct path of NFC on reduced personal efficiency, `r report_pe(fit_rpe, 'c', txt = T, beta_only = T)`. While NFC predicted self-control, `r report_pe(fit_rpe, 'a1', txt = T, beta_only = T)`, self-control did not predict reduced personal efficiency, `r report_pe(fit_rpe, 'b1', txt = T, beta_only = T)`, hence, no mediation occured, `r report_pe(fit_rpe, 'ind1', txt = T, beta_only = T)` (H4a). Reappraisal partly mediated the NFC–efficiency link, `r report_pe(fit_rpe, 'ind2', txt = T, beta_only = T)` (H4b), while suppression did not, `r report_pe(fit_rpe, 'ind3', txt = T, beta_only = T)` (H4c). Adaptive coping mediated the effect of NFC on reduced personal efficiency, , `r report_pe(fit_rpe, 'ind4', txt = T, beta_only = T)` (H4d). Although NFC predicted maladaptive coping, `r report_pe(fit_rpe, 'a5', txt = T, beta_only = T)`, a mediation effect of maladaptive coping was not supported, , `r report_pe(fit_rpe, 'ind5', txt = T, beta_only = T)` (H4e).
+
+![Multiple mediation of the relationship between Need for Cognition with the burnout dimension reduced personal efficiency. Standardized coefficients are given (bold: $p< .05$). Indirect paths are provided above the mediators, the remaining direct effect is given at the bottom of the figure together with the total path (in brackets).](NFC-Caregiver_figures/Fig1.eps)
+
+```{r RQ5, echo = F, warning = F}
+# specify model for emotional exhaustion (ee)
+model_ee = gsub("mbi", "mbi_ee", model_mbi)
+
+# fit ee model
+fit_ee=sem(model_ee, df_analysis, estimator="MLR")
+
+# create table with parameter estimates
+pe_ee = parameterEstimates(fit_ee, standardized = T)
+pe_ee_table=printnum(pe_ee[c(1:11,19:24),c("est","se","ci.lower", "ci.upper", "pvalue", "std.all")], digits = 3)
+
+# create data.frame for table
+df <- pe_ee_table
+
+colnames(df) <- c("B","SE","CI.lower","CI.upper","p","beta")
+df$beta = sub("0.", ".", df$beta)
+
+rownames(df) <- gsub("MBI", "EE", rownames_df)
+
+df <- df %>%
+  mutate(
+    p = ifelse(p == 0 | p == .000, "< .001",
+               ifelse(p < .001, "< .001",
+                      sub("^0\\.", ".", formatC(p, digits = 3, format = "f"))))
+  )
+
+colnames(df) = c("$B$", "$SE$", "$LB$", "$UB$", "$p$", "$\\beta$")
+apa_table(
+  df,
+  escape = F, align = c("l", rep("r",6)), font_size = "footnotesize", 
+  stub_indents = list(`\\textit{NFC to Mediators}` = 2:6,
+                      `\\textit{Mediators to EE}` = 7:11,
+                      `\\textit{Indirect effects}` = 12:16),
+  midrules = c(1,7,13,19), 
+  caption = "Mediation of the effect of Need for Cognition (NFC) on emotional exhaustion (EE)",
+  note = "$N=642$. $B$ = unstandardized coefficient, $SE$ = standard error of $B$, $LB/UB$ = lower and upper bound of the 95\\% confidence interval, $p$ = $p$-value, $\\beta$ = standardized coefficient, a = paths from predictor to mediator, b = paths from mediator to outcome, ind = indirect effects a*b."
+)
+```
+
+### Research Question 5  
+Figure 2 and Table 3 show the model for *emotional exhaustion*. Less than half of the total effect, `r report_pe(fit_ee, 'total', txt = T, beta_only = T)`, was due to the direct path, `r report_pe(fit_ee, 'c', txt = T, beta_only = T)`. Mediation occurred for adaptive coping, `r report_pe(fit_ee, 'ind4', txt = T, beta_only = T)`, and maladaptive coping, `r report_pe(fit_ee, 'ind5', txt = T, beta_only = T)`, but not for self-control, `r report_pe(fit_ee, 'ind1', txt = T, beta_only = T)`, reappraisal, `r report_pe(fit_ee, 'ind2', txt = T, beta_only = T)`, or suppression, `r report_pe(fit_ee, 'ind3', txt = T, beta_only = T)`.
+
+![Multiple mediation of the relationship between Need for Cognition with the burnout dimension emotional exhaustion. Standardized coefficients are given (bold: $p< .05$). Indirect paths are provided above the mediators, the remaining direct effect is given at the bottom of the figure together with the total path (in brackets).](NFC-Caregiver_figures/Fig2.eps)
+
+```{r RQ6, echo = F, warning = F}
+# specify model for depersonalization (de)
+model_de = gsub("mbi", "mbi_de", model_mbi)
+
+# fit de model
+fit_de=sem(model_de, df_analysis, estimator="MLR")
+
+# create table with parameter estimates
+pe_de = parameterEstimates(fit_de, standardized = T)
+pe_de_table=printnum(pe_de[c(1:11,19:24),c("est","se","ci.lower", "ci.upper", "pvalue", "std.all")], digits = 3)
+
+# create data.frame for table
+df <- pe_de_table
+
+colnames(df) <- c("B","SE","CI.lower","CI.upper","p","beta")
+df$beta = sub("0.", ".", df$beta)
+
+rownames(df) <- gsub("MBI", "DE", rownames_df)
+
+df <- df %>%
+  mutate(
+    p = ifelse(p == 0 | p == .000, "< .001",
+               ifelse(p < .001, "< .001",
+                      sub("^0\\.", ".", formatC(p, digits = 3, format = "f"))))
+  )
+
+colnames(df) = c("$B$", "$SE$", "$LB$", "$UB$", "$p$", "$\\beta$")
+apa_table(
+  df,
+  escape = F, align = c("l", rep("r",6)), font_size = "footnotesize", 
+  stub_indents = list(`\\textit{NFC to Mediators}` = 2:6,
+                      `\\textit{Mediators to DE}` = 7:11,
+                      `\\textit{Indirect effects}` = 12:16),
+  midrules = c(1,7,13,19), 
+  caption = "Mediation of the effect of Need for Cognition (NFC) on depersonalization (DE)",
+  note = "$N=642$. $B$ = unstandardized coefficient, $SE$ = standard error of $B$, $LB/UB$ = lower and upper bound of the 95\\% confidence interval, $p$ = $p$-value, $\\beta$ = standardized coefficient, a = paths from predictor to mediator, b = paths from mediator to outcome, ind = indirect effects a*b."
+)
+```
+
+### Research Question 6  
+Figure 3 and Table 4 show the model for *depersonalization*. About one third of the total effect, `r report_pe(fit_de, 'total', txt = T, beta_only = T)`, reflected the direct path, `r report_pe(fit_de, 'c', txt = T, beta_only = T)`. Again, mediation was found for adaptive and maladaptive coping, `r report_pe(fit_de, 'ind4', txt = T, beta_only = T)`, and `r report_pe(fit_de, 'ind5', txt = T, beta_only = T)`, but not for self-control, `r report_pe(fit_de, 'ind1', txt = T, beta_only = T)`, reappraisal, `r report_pe(fit_de, 'ind2', txt = T, beta_only = T)`, or suppression, `r report_pe(fit_de, 'ind3', txt = T, beta_only = T)`.  
+
+![Multiple mediation of the relationship between Need for Cognition with the burnout dimension depersonalization. Standardized coefficients are given (bold: $p< .05$). Indirect paths are provided above the mediators, the remaining direct effect is given at the bottom of the figure together with the total path (in brackets).](NFC-Caregiver_figures/Fig3.eps)
 
 # Discussion
 
+...
 
 \newpage
   
