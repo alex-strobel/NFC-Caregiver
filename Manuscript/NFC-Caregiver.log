@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.12.18)  10 SEP 2025 10:52
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.12.18)  10 SEP 2025 11:21
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -725,47 +725,47 @@ LaTeX Warning: Float too large for page by 8.37576pt on input line 192.
 
 [21] (./NFC-Caregiver.fff
 Package epstopdf Info: Source file: <NFC-Caregiver_figures/Fig1.eps>
-(epstopdf)                    date: 2025-09-09 08:34:46
+(epstopdf)                    date: 2025-09-10 11:10:04
 (epstopdf)                    size: 5873 bytes
 (epstopdf)             Output file: <NFC-Caregiver_figures/Fig1-eps-converted-to.pdf>
-(epstopdf)                    date: 2025-09-09 08:36:11
-(epstopdf)                    size: 13487 bytes
+(epstopdf)                    date: 2025-09-10 11:12:13
+(epstopdf)                    size: 13478 bytes
 (epstopdf)             Command: <repstopdf --outfile=NFC-Caregiver_figures/Fig1-eps-converted-to.pdf NFC-Caregiver_figures/Fig1.eps>
 (epstopdf)             \includegraphics on input line 5.
 Package epstopdf Info: Output file is already uptodate.
-<NFC-Caregiver_figures/Fig1-eps-converted-to.pdf, id=208, 458.71375pt x 326.21875pt>
+<NFC-Caregiver_figures/Fig1-eps-converted-to.pdf, id=208, 483.8075pt x 326.21875pt>
 File: NFC-Caregiver_figures/Fig1-eps-converted-to.pdf Graphic file (type pdf)
 <use NFC-Caregiver_figures/Fig1-eps-converted-to.pdf>
 Package pdftex.def Info: NFC-Caregiver_figures/Fig1-eps-converted-to.pdf  used on input line 5.
-(pdftex.def)             Requested size: 458.71263pt x 326.21794pt.
+(pdftex.def)             Requested size: 483.80632pt x 326.21794pt.
 Package epstopdf Info: Source file: <NFC-Caregiver_figures/Fig2.eps>
-(epstopdf)                    date: 2025-09-09 08:34:57
+(epstopdf)                    date: 2025-09-10 11:10:15
 (epstopdf)                    size: 5795 bytes
 (epstopdf)             Output file: <NFC-Caregiver_figures/Fig2-eps-converted-to.pdf>
-(epstopdf)                    date: 2025-09-09 08:36:11
-(epstopdf)                    size: 13706 bytes
+(epstopdf)                    date: 2025-09-10 11:12:13
+(epstopdf)                    size: 13700 bytes
 (epstopdf)             Command: <repstopdf --outfile=NFC-Caregiver_figures/Fig2-eps-converted-to.pdf NFC-Caregiver_figures/Fig2.eps>
 (epstopdf)             \includegraphics on input line 12.
 Package epstopdf Info: Output file is already uptodate.
-<NFC-Caregiver_figures/Fig2-eps-converted-to.pdf, id=209, 458.71375pt x 326.21875pt>
+<NFC-Caregiver_figures/Fig2-eps-converted-to.pdf, id=209, 483.8075pt x 326.21875pt>
 File: NFC-Caregiver_figures/Fig2-eps-converted-to.pdf Graphic file (type pdf)
 <use NFC-Caregiver_figures/Fig2-eps-converted-to.pdf>
 Package pdftex.def Info: NFC-Caregiver_figures/Fig2-eps-converted-to.pdf  used on input line 12.
-(pdftex.def)             Requested size: 458.71263pt x 326.21794pt.
+(pdftex.def)             Requested size: 483.80632pt x 326.21794pt.
 Package epstopdf Info: Source file: <NFC-Caregiver_figures/Fig3.eps>
-(epstopdf)                    date: 2025-09-09 08:35:15
+(epstopdf)                    date: 2025-09-10 11:10:25
 (epstopdf)                    size: 5769 bytes
 (epstopdf)             Output file: <NFC-Caregiver_figures/Fig3-eps-converted-to.pdf>
-(epstopdf)                    date: 2025-09-09 08:36:12
-(epstopdf)                    size: 13177 bytes
+(epstopdf)                    date: 2025-09-10 11:12:13
+(epstopdf)                    size: 13166 bytes
 (epstopdf)             Command: <repstopdf --outfile=NFC-Caregiver_figures/Fig3-eps-converted-to.pdf NFC-Caregiver_figures/Fig3.eps>
 (epstopdf)             \includegraphics on input line 19.
 Package epstopdf Info: Output file is already uptodate.
-<NFC-Caregiver_figures/Fig3-eps-converted-to.pdf, id=210, 458.71375pt x 326.21875pt>
+<NFC-Caregiver_figures/Fig3-eps-converted-to.pdf, id=210, 483.8075pt x 326.21875pt>
 File: NFC-Caregiver_figures/Fig3-eps-converted-to.pdf Graphic file (type pdf)
 <use NFC-Caregiver_figures/Fig3-eps-converted-to.pdf>
 Package pdftex.def Info: NFC-Caregiver_figures/Fig3-eps-converted-to.pdf  used on input line 19.
-(pdftex.def)             Requested size: 458.71263pt x 326.21794pt.
+(pdftex.def)             Requested size: 483.80632pt x 326.21794pt.
 )
 
 [22
@@ -790,7 +790,7 @@ Here is how much of TeX's memory you used:
  14 hyphenation exceptions out of 8191
  83i,11n,93p,2252b,810s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </Users/alex/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></Users/alex/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi10.pfb></Users/alex/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi12.pfb></Users/alex/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi8.pfb></Users/alex/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr10.pfb></Users/alex/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr12.pfb></Users/alex/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr8.pfb></Users/alex/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmri10.pfb></Users/alex/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmri12.pfb></Users/alex/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmss8.pfb></Users/alex/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy10.pfb>
-Output written on NFC-Caregiver.pdf (24 pages, 286461 bytes).
+Output written on NFC-Caregiver.pdf (24 pages, 286493 bytes).
 PDF statistics:
  403 PDF objects out of 1000 (max. 8388607)
  330 compressed objects within 4 object streams

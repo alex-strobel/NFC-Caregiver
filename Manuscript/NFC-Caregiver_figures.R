@@ -1,6 +1,7 @@
 library(shape)   # for Arrows()
 
-# load parameter estimates for rpe, ee, and de
+# load parameter estimates for rpe (Fig1), ee (Fig2, and de (Fig3)
+load(here("Data", "NFC-Caregiver_RMarkdown-generated.RData"))
 
 # FIGURE 1 --------------------------------------------------------------------
 
@@ -89,7 +90,7 @@ text(x_med+2,y_mediators[5]-1.75-.3, paste0("[", get_val("total"), "]"), font=ge
 # reset plot margins
 par(mar=c(5,4,4,2))
 
-# now save figure as *.eps via Export > Save as Image ...
+# now save figure as Fig1.eps via Plots > Export > Save as Image ...
 
 # FIGURE 2 --------------------------------------------------------------------
 
@@ -178,7 +179,7 @@ text(x_med+2,y_mediators[5]-1.75-.3, paste0("[", get_val("total"), "]"), font=ge
 # reset plot margins
 par(mar=c(5,4,4,2))
 
-# now save figure as *.eps via Export > Save as Image ...
+# now save figure as Fig2.eps via Plots > Export > Save as Image ...
 
 # FIGURE 3 --------------------------------------------------------------------
 
@@ -267,4 +268,4 @@ text(x_med+2,y_mediators[5]-1.75-.3, paste0("[", get_val("total"), "]"), font=ge
 # reset plot margins
 par(mar=c(5,4,4,2))
 
-# now save figure as *.eps via Export > Save as Image ...
+# now save figure as Fig3.eps via Plots > Export > Save as Image ...

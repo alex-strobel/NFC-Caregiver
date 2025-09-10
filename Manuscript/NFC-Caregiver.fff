@@ -3,19 +3,19 @@
 
 \centering
 \pandocbounded{\includegraphics[keepaspectratio]{NFC-Caregiver_figures/Fig1.eps}}
-\caption{Multiple mediation of the relationship between Need for Cognition with the burnout dimension reduced personal efficiency. Standardized coefficients are given (bold: \(p< .05\)). Indirect paths are provided above the mediators, the remaining direct effect is given at the bottom of the figure together with the total path (in brackets).}
+\caption{Multiple mediation of the relationship between Need for Cognition with the burnout dimension reduced personal efficiency. Standardized coefficients are given (bold: \(p<.05\)). Indirect paths are provided above the mediators, the remaining direct effect is given at the bottom of the figure together with the total effect (in brackets).}
 \end{figure*}
 \begin{figure*}[hbt]
 \ifnextchar[{\eatarg}{}
 
 \centering
 \pandocbounded{\includegraphics[keepaspectratio]{NFC-Caregiver_figures/Fig2.eps}}
-\caption{Multiple mediation of the relationship between Need for Cognition with the burnout dimension emotional exhaustion. Standardized coefficients are given (bold: \(p< .05\)). Indirect paths are provided above the mediators, the remaining direct effect is given at the bottom of the figure together with the total path (in brackets).}
+\caption{Multiple mediation of the relationship between Need for Cognition with the burnout dimension emotional exhaustion. Standardized coefficients are given (bold: \(p< .05\)). Indirect paths are provided above the mediators, the remaining direct effect is given at the bottom of the figure together with the total effect (in brackets).}
 \end{figure*}
 \begin{figure*}[hbt]
 \ifnextchar[{\eatarg}{}
 
 \centering
 \pandocbounded{\includegraphics[keepaspectratio]{NFC-Caregiver_figures/Fig3.eps}}
-\caption{Multiple mediation of the relationship between Need for Cognition with the burnout dimension depersonalization. Standardized coefficients are given (bold: \(p< .05\)). Indirect paths are provided above the mediators, the remaining direct effect is given at the bottom of the figure together with the total path (in brackets).}
+\caption{Multiple mediation of the relationship between Need for Cognition with the burnout dimension depersonalization. Standardized coefficients are given (bold: \(p< .05\)). Indirect paths are provided above the mediators, the remaining direct effect is given at the bottom of the figure together with the total effect (in brackets).}
 \end{figure*}

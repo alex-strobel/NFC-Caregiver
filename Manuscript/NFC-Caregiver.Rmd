@@ -251,7 +251,7 @@ Maladaptive coping was measured with the “increased alcohol and cigarette cons
 This subscale had a questionable internal consistency of MacDonald’s $\omega=$ `r printnum(min(rel$o[which(rownames(rel) == "^maladapt_")]), gt1 = F)`.
 
 ## Statistical analyses
-We used `r cite_r("r-references.bib")` for all our analyses.
+We used `r cite_r("r-references.bib")` for our analyses.
 
 ```{r normality, echo = F} 
 
@@ -453,7 +453,7 @@ apa_table(
 ### Research Question 4
 Figure 1 and Table 2 present the results of the multiple mediation analysis for *reduced personal efficiency*. Roughly half of the total effect, `r report_pe(fit_rpe, 'total', txt = T, beta_only = T)`, stemmed from the direct path of NFC on reduced personal efficiency, `r report_pe(fit_rpe, 'c', txt = T, beta_only = T)`. While NFC predicted self-control, `r report_pe(fit_rpe, 'a1', txt = T, beta_only = T)`, self-control did not predict reduced personal efficiency, `r report_pe(fit_rpe, 'b1', txt = T, beta_only = T)`, hence, no mediation occured, `r report_pe(fit_rpe, 'ind1', txt = T, beta_only = T)` (H4a). Reappraisal partly mediated the NFC–efficiency link, `r report_pe(fit_rpe, 'ind2', txt = T, beta_only = T)` (H4b), while suppression did not, `r report_pe(fit_rpe, 'ind3', txt = T, beta_only = T)` (H4c). Adaptive coping mediated the effect of NFC on reduced personal efficiency, , `r report_pe(fit_rpe, 'ind4', txt = T, beta_only = T)` (H4d). Although NFC predicted maladaptive coping, `r report_pe(fit_rpe, 'a5', txt = T, beta_only = T)`, a mediation effect of maladaptive coping was not supported, , `r report_pe(fit_rpe, 'ind5', txt = T, beta_only = T)` (H4e).
 
-![Multiple mediation of the relationship between Need for Cognition with the burnout dimension reduced personal efficiency. Standardized coefficients are given (bold: $p< .05$). Indirect paths are provided above the mediators, the remaining direct effect is given at the bottom of the figure together with the total path (in brackets).](NFC-Caregiver_figures/Fig1.eps)
+![Multiple mediation of the relationship between Need for Cognition with the burnout dimension reduced personal efficiency. Standardized coefficients are given (bold: $p<.05$). Indirect paths are provided above the mediators, the remaining direct effect is given at the bottom of the figure together with the total effect (in brackets).](NFC-Caregiver_figures/Fig1.eps)
 
 ```{r RQ5, echo = F, warning = F}
 # specify model for emotional exhaustion (ee)
@@ -497,7 +497,7 @@ apa_table(
 ### Research Question 5  
 Figure 2 and Table 3 show the model for *emotional exhaustion*. Less than half of the total effect, `r report_pe(fit_ee, 'total', txt = T, beta_only = T)`, was due to the direct path, `r report_pe(fit_ee, 'c', txt = T, beta_only = T)`. Mediation occurred for adaptive coping, `r report_pe(fit_ee, 'ind4', txt = T, beta_only = T)`, and maladaptive coping, `r report_pe(fit_ee, 'ind5', txt = T, beta_only = T)`, but not for self-control, `r report_pe(fit_ee, 'ind1', txt = T, beta_only = T)`, reappraisal, `r report_pe(fit_ee, 'ind2', txt = T, beta_only = T)`, or suppression, `r report_pe(fit_ee, 'ind3', txt = T, beta_only = T)`.
 
-![Multiple mediation of the relationship between Need for Cognition with the burnout dimension emotional exhaustion. Standardized coefficients are given (bold: $p< .05$). Indirect paths are provided above the mediators, the remaining direct effect is given at the bottom of the figure together with the total path (in brackets).](NFC-Caregiver_figures/Fig2.eps)
+![Multiple mediation of the relationship between Need for Cognition with the burnout dimension emotional exhaustion. Standardized coefficients are given (bold: $p< .05$). Indirect paths are provided above the mediators, the remaining direct effect is given at the bottom of the figure together with the total effect (in brackets).](NFC-Caregiver_figures/Fig2.eps)
 
 ```{r RQ6, echo = F, warning = F}
 # specify model for depersonalization (de)
@@ -541,7 +541,12 @@ apa_table(
 ### Research Question 6  
 Figure 3 and Table 4 show the model for *depersonalization*. About one third of the total effect, `r report_pe(fit_de, 'total', txt = T, beta_only = T)`, reflected the direct path, `r report_pe(fit_de, 'c', txt = T, beta_only = T)`. Again, mediation was found for adaptive and maladaptive coping, `r report_pe(fit_de, 'ind4', txt = T, beta_only = T)`, and `r report_pe(fit_de, 'ind5', txt = T, beta_only = T)`, but not for self-control, `r report_pe(fit_de, 'ind1', txt = T, beta_only = T)`, reappraisal, `r report_pe(fit_de, 'ind2', txt = T, beta_only = T)`, or suppression, `r report_pe(fit_de, 'ind3', txt = T, beta_only = T)`.  
 
-![Multiple mediation of the relationship between Need for Cognition with the burnout dimension depersonalization. Standardized coefficients are given (bold: $p< .05$). Indirect paths are provided above the mediators, the remaining direct effect is given at the bottom of the figure together with the total path (in brackets).](NFC-Caregiver_figures/Fig3.eps)
+![Multiple mediation of the relationship between Need for Cognition with the burnout dimension depersonalization. Standardized coefficients are given (bold: $p< .05$). Indirect paths are provided above the mediators, the remaining direct effect is given at the bottom of the figure together with the total effect (in brackets).](NFC-Caregiver_figures/Fig3.eps)
+
+```{r save_image, echo = F, warning = F}
+save.image(here("Data", "NFC-Caregiver_RMarkdown-generated.RData"))
+```
+
 
 # Discussion
 
