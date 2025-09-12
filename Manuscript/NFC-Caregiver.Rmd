@@ -536,8 +536,72 @@ save.image(here("Data", "NFC-Caregiver_RMarkdown-generated.RData"))
 
 
 # Discussion
+<!--
+Summary/Evaluation by **ChatGPT**:
 
-...
+(1) Check of hypotheses vs. results
+H1a (NFC - self-control, moderate positive)
+Result: large positive correlation (rs = .56).
+**!!!** Hypothesis supported, but effect size larger than predicted.
+H1b (NFC - reappraisal small positive; no link with suppression)
+Result: no correlation with reappraisal, none with suppression.
+**XXX** Hypothesis not supported (expected small positive with reappraisal).
+H1c (NFC - adaptive coping moderate positive; maladaptive coping small negative)
+Result: small positive with adaptive (rs = .15); large negative with maladaptive (rs = –.30).
+**X!X** Partially supported (direction correct, effect sizes differ).
+H1d (NFC - rPE medium negative)
+Result: small negative (rs = –.19).
+**XXX**Not supported (effect weaker than predicted).
+H1e (self-control - rPE large negative)
+Result: small negative (rs = –.18).
+**XXX** Not supported (weaker effect).
+H1f (reappraisal - rPE medium negative; suppression - no link)
+Result: reappraisal medium negative (rs = –.29), suppression small positive (rs = .12).
+**X!X**Reappraisal part supported; suppression contradicts prediction.
+H1g (adaptive coping - rPE large negative; maladaptive coping - large positive)
+Result: adaptive coping large negative (rs = –.42, **!!!** supported); maladaptive small positive (rs = .11, **XXX** weaker than predicted).
+RQ2 (Emotional exhaustion)
+Result: significant correlations with all predictors in expected directions (NFC, self-control, reappraisal negative; suppression, maladaptive coping positive; adaptive coping negative).
+**!!!** Clear pattern, although effect sizes modest.
+RQ3 (Depersonalization)
+Result: NFC and self-control not significant; reappraisal (–), suppression (+), adaptive coping (–), maladaptive coping (+).
+**!!!** Clear, but partly divergent from RQ1–2: NFC/self-control play no role here.
+H4a (Mediation via self-control not supported)
+Result: confirmed.
+H4b (Mediation via reappraisal partial)
+Result: small significant mediation (beta = –.01, p = .049).
+**!!!** Supported.
+H4c (Suppression mediation absent)
+Result: confirmed.
+H4d (Mediation via adaptive coping partial)
+Result: significant mediation (beta = –.07).
+**!!!** Supported.
+H4e (Mediation via maladaptive coping partial)
+Result: no mediation (beta = .00).
+**XXX** Not supported.
+RQ5 (Mediation on emotional exhaustion)
+Result: only adaptive and maladaptive coping mediated.
+RQ6 (Mediation on depersonalization)
+Result: only adaptive and maladaptive coping mediated.
+(2) Draft Summary for Discussion Intro
+-->
+
+## Summary of Findings
+The present study examined the role of Need for Cognition (NFC), self-control, coping, and emotion regulation strategies in predicting burnout dimensions in healthcare professionals. Overall, results partly supported the proposed hypotheses. NFC was strongly associated with self-control and showed beneficial links with adaptive coping and lower maladaptive coping, although effect sizes did not always align with expectations. Contrary to predictions, NFC was unrelated to reappraisal and suppression, and its associations with burnout were weaker than hypothesized.
+
+Regarding burnout dimensions, NFC, self-control, and reappraisal were negatively related to reduced personal efficiency and emotional exhaustion, whereas suppression and maladaptive coping were positively related. For depersonalization, however, NFC and self-control showed no significant associations, suggesting limited relevance of these factors for this burnout facet.
+
+Mediation analyses revealed that adaptive coping consistently accounted for part of the protective role of NFC across all burnout dimensions, while maladaptive coping mediated the effects of NFC on emotional exhaustion and depersonalization, but not on reduced personal efficiency. By contrast, self-control did not function as a mediator, and only a minor indirect effect emerged via reappraisal.
+
+## Evaluation of Hypotheses
+
+Supported: H1a, H1f (reappraisal part), H1g (adaptive coping), H4a, H4b, H4c, H4d.
+
+Partially supported: H1c, H1f (suppression part).
+
+Not supported: H1b, H1d, H1e, H1g (maladaptive coping), H4e.
+
+Together, these findings highlight the central importance of coping strategies, particularly adaptive coping, in linking cognitive-motivational resources such as NFC to burnout outcomes, while emotion regulation strategies and self-control played a more limited role.
 
 \newpage
   

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.12.18)  10 SEP 2025 13:21
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.12.18)  12 SEP 2025 10:00
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -678,27 +678,29 @@ File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 [11]
 
 [12]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
 
 [13]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 
-[14] AED endfloat: Processing end Figures and Tables
+[14]
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[15] (./NFC-Caregiver.ttt
+
+
+[15] AED endfloat: Processing end Figures and Tables
+
+[16] (./NFC-Caregiver.ttt
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <5> on input line 40.
-[16
+[17
 
 
 
 ]
 
-[17]
+[18]
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <10> on input line 57.
 LaTeX Font Info:    External font `lmex10' loaded for size
@@ -714,11 +716,11 @@ LaTeX Warning: Float too large for page by 8.37576pt on input line 192.
 
 )
 
-[18]
-
 [19]
 
-[20] (./NFC-Caregiver.fff
+[20]
+
+[21] (./NFC-Caregiver.fff
 Package epstopdf Info: Source file: <NFC-Caregiver_figures/Fig1.eps>
 (epstopdf)                    date: 2025-09-10 11:10:04
 (epstopdf)                    size: 5873 bytes
@@ -728,7 +730,7 @@ Package epstopdf Info: Source file: <NFC-Caregiver_figures/Fig1.eps>
 (epstopdf)             Command: <repstopdf --outfile=NFC-Caregiver_figures/Fig1-eps-converted-to.pdf NFC-Caregiver_figures/Fig1.eps>
 (epstopdf)             \includegraphics on input line 5.
 Package epstopdf Info: Output file is already uptodate.
-<NFC-Caregiver_figures/Fig1-eps-converted-to.pdf, id=206, 483.8075pt x 326.21875pt>
+<NFC-Caregiver_figures/Fig1-eps-converted-to.pdf, id=212, 483.8075pt x 326.21875pt>
 File: NFC-Caregiver_figures/Fig1-eps-converted-to.pdf Graphic file (type pdf)
 <use NFC-Caregiver_figures/Fig1-eps-converted-to.pdf>
 Package pdftex.def Info: NFC-Caregiver_figures/Fig1-eps-converted-to.pdf  used on input line 5.
@@ -742,7 +744,7 @@ Package epstopdf Info: Source file: <NFC-Caregiver_figures/Fig2.eps>
 (epstopdf)             Command: <repstopdf --outfile=NFC-Caregiver_figures/Fig2-eps-converted-to.pdf NFC-Caregiver_figures/Fig2.eps>
 (epstopdf)             \includegraphics on input line 12.
 Package epstopdf Info: Output file is already uptodate.
-<NFC-Caregiver_figures/Fig2-eps-converted-to.pdf, id=207, 483.8075pt x 326.21875pt>
+<NFC-Caregiver_figures/Fig2-eps-converted-to.pdf, id=213, 483.8075pt x 326.21875pt>
 File: NFC-Caregiver_figures/Fig2-eps-converted-to.pdf Graphic file (type pdf)
 <use NFC-Caregiver_figures/Fig2-eps-converted-to.pdf>
 Package pdftex.def Info: NFC-Caregiver_figures/Fig2-eps-converted-to.pdf  used on input line 12.
@@ -756,39 +758,39 @@ Package epstopdf Info: Source file: <NFC-Caregiver_figures/Fig3.eps>
 (epstopdf)             Command: <repstopdf --outfile=NFC-Caregiver_figures/Fig3-eps-converted-to.pdf NFC-Caregiver_figures/Fig3.eps>
 (epstopdf)             \includegraphics on input line 19.
 Package epstopdf Info: Output file is already uptodate.
-<NFC-Caregiver_figures/Fig3-eps-converted-to.pdf, id=208, 483.8075pt x 326.21875pt>
+<NFC-Caregiver_figures/Fig3-eps-converted-to.pdf, id=214, 483.8075pt x 326.21875pt>
 File: NFC-Caregiver_figures/Fig3-eps-converted-to.pdf Graphic file (type pdf)
 <use NFC-Caregiver_figures/Fig3-eps-converted-to.pdf>
 Package pdftex.def Info: NFC-Caregiver_figures/Fig3-eps-converted-to.pdf  used on input line 19.
 (pdftex.def)             Requested size: 483.80632pt x 326.21794pt.
 )
 
-[21
+[22
 
 
  <./NFC-Caregiver_figures/Fig1-eps-converted-to.pdf>]
 
-[22 <./NFC-Caregiver_figures/Fig2-eps-converted-to.pdf>]
+[23 <./NFC-Caregiver_figures/Fig2-eps-converted-to.pdf>]
 
-[23 <./NFC-Caregiver_figures/Fig3-eps-converted-to.pdf>] (./NFC-Caregiver.aux)
+[24 <./NFC-Caregiver_figures/Fig3-eps-converted-to.pdf>] (./NFC-Caregiver.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 1
 L3 programming layer <2020/03/25>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 16586 strings out of 475290
- 269018 string characters out of 5768331
- 712535 words of memory out of 5000000
- 39076 multiletter control sequences out of 15000+600000
+ 16593 strings out of 475290
+ 269106 string characters out of 5768331
+ 712628 words of memory out of 5000000
+ 39080 multiletter control sequences out of 15000+600000
  632585 words of font info for 101 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  83i,11n,93p,2252b,810s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </Users/alex/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></Users/alex/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi10.pfb></Users/alex/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi12.pfb></Users/alex/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi8.pfb></Users/alex/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr10.pfb></Users/alex/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr12.pfb></Users/alex/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr8.pfb></Users/alex/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmri10.pfb></Users/alex/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmri12.pfb></Users/alex/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmss8.pfb></Users/alex/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy10.pfb>
-Output written on NFC-Caregiver.pdf (23 pages, 286772 bytes).
+Output written on NFC-Caregiver.pdf (24 pages, 289472 bytes).
 PDF statistics:
- 401 PDF objects out of 1000 (max. 8388607)
- 329 compressed objects within 4 object streams
- 89 named destinations out of 1000 (max. 500000)
- 160 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 414 PDF objects out of 1000 (max. 8388607)
+ 341 compressed objects within 4 object streams
+ 92 named destinations out of 1000 (max. 500000)
+ 176 words of extra memory for PDF output out of 10000 (max. 10000000)
 
