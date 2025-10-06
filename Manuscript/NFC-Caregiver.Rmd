@@ -178,7 +178,7 @@ profession <- function(label = 1) {
   return(printnum(length(which(unclass(data_ZK$profession) == label))/nrow(data_ZK)*100, digits = 1))
   }
 ```
-<!-- -->
+
 After the exclusion of participants because of incorrect scale labeling, missing consent to be interviewed, double participation, not having answered the questions seriously, not working in a healthcare profession or not being educated to do so, or having taken less than the average time to complete the questionnaires (see pregistration https://osf.io/d6y9k, section Data exclusion for details), the usable subsamples comprised $n_{2018}=431$, and $n_{2019}=229$ participants<!-- can these figures be found somewhere in the raw or preprocessed data? -->. The resulting total sample therefore consisted of $N=$ `r nrow(data_ZK)` (`r paste(table(unclass(data_ZK$sex)), c("female", "male", "diverse"), collapse = ", ")`; age range `r paste(range(data_ZK$age), collapse = " to ")` years, $M=$ `r printnum(mean(data_ZK$age), digits = 1)`, $SD=$ `r printnum(sd(data_ZK$age), digits = 1)` years). 
 The majority of participants worked as nurses (`r profession(1)`%), while `r profession(5)`% held management positions in healthcare. 
 Others were employed as social workers (`r profession(4)`%), psychotherapists (`r profession(3)`%), and other therapeutic professions such as occupational therapist or healthcare volunteers. 
@@ -292,8 +292,33 @@ classify_r <- function(x1, x2) {
   }
 }
 
+# report correlations with effect size, 95% CI, and p value
+report_cor <- function(x1, x2) {
+  ct = corr.test(x1, x2, method = "spearman")
+  if (ct$p < .001) { p = "< .001" } else { p = paste0("= ", print_p(ct$p)) }
+  result = paste0('$r_{s}=$ ', printnum(ct$ci['r'], gt1=F), ', 95% CI [', printnum(ct$ci['lower'], gt1=F), ', ', printnum(ct$ci['upper'], gt1=F), '], $p$ ', p)
+  return(result)
+}
+
+# classify correlations according to Gignac & Szodorai (2016)
+classify_r <- function(x1, x2) {
+  r = as.numeric(corr.test(x1, x2, method = "spearman")$ci['r'])
+  if (r > 0) {direction = "positive"} else {direction = "negative"}
+  if (is.na(r)) {
+    return(NA)
+  } else if (abs(r) >= 0.3) {
+    return(paste("a large", direction))
+  } else if (abs(r) >= 0.2) {
+    return(paste("a medium", direction))
+  } else if (abs(r) >= 0.1) {
+    return(paste("a small", direction))
+  } else {
+    return("no")
+  }
+}
+
 ```
-Robust tests were used to account for deviation from univariate and multivariate normality of the study variables, i.e. the MBI subscales, NFC, self-control, emotion regulation strategies, and coping styles; Shapiro-Wilk and Mardia tests, all $p\ge.001$). Spearman correlations were calculated to address the research questions (RQ) regarding bivariate relationships between Need for Cognition (NFC), self-control, adaptive and maladaptive coping strategies, the emotion regulation strategies reappraisal and suppression with the burnout dimensions *reduced personal efficiency* (rPE; RQ1), *emotional exhaustion* (EE; RQ2), and *depersonalization* (DE; RQ3). Statistical significance was evaluated based on the correlations' 95% CI not including zero, which with our sample size was the case for all $|r_{s}|\ge.077$. Effect size classification followed empirically derived thresholds [@Gignac-2016], i.e., $r_{s} \ge$ .10, .20, and .30 for small, medium, and large correlations. To address the research questions on possible mediation effects, i.e., whether self-control, reappraisal and suppression, and adaptive and maladaptive coping mediate the relationship between NFC and the burnout dimensions rPE (RQ4), EE (RQ5), and DE (RQ6), multiple mediation models were tested using *lavaan* with robust Maximum Likelihood estimation of standard errors.
+Robust tests were used to account for deviation from univariate and multivariate normality of the study variables, i.e. the MBI subscales, NFC, self-control, emotion regulation strategies, and coping styles; Shapiro-Wilk and Mardia tests, all $p\ge.001$). Spearman correlations were calculated to address the research questions (RQ) regarding bivariate relationships between Need for Cognition (NFC), self-control, adaptive and maladaptive coping strategies, the emotion regulation strategies reappraisal and suppression with the burnout dimensions *reduced personal efficiency* (rPE; RQ1), *emotional exhaustion* (EE; RQ2), and *depersonalization* (DE; RQ3). Statistical significance was evaluated based on the correlations' 95% CI not including zero, which with our sample size was the case for all $|r_{s}|\ge.141$. Effect size classification followed empirically derived thresholds [@Gignac-2016], i.e., $r_{s} \ge$ .10, .20, and .30 for small, medium, and large correlations. To address the research questions on possible mediation effects, i.e., whether self-control, reappraisal and suppression, and adaptive and maladaptive coping mediate the relationship between NFC and the burnout dimensions rPE (RQ4), EE (RQ5), and DE (RQ6), multiple mediation models were tested using *lavaan* with robust Maximum Likelihood estimation of standard errors.
 
 # Results
 
@@ -427,7 +452,7 @@ df <- df %>%
 colnames(df) = c("$B$", "$SE$", "$LB$", "$UB$", "$p$", "$\\beta$")
 apa_table(
   df,
-  escape = F, align = c("l", rep("r",6)), font_size = "footnotesize", 
+  escape = F, align = c("l", rep("r",6)), font_size = "footnotesize",
   stub_indents = list(`\\textit{NFC to Mediators}` = 2:6,
                       `\\textit{Mediators to rPE}` = 7:11,
                       `\\textit{Indirect effects}` = 12:16),
