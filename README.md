@@ -32,7 +32,7 @@ https://aakinshin.net/vignettes/tinytex-reinstall/
 
 ### Materials
 
-- The Bachelor's thesis this manuscript builds on
+- The Bachelor's thesis this manuscript builds on.
 
 ### Resources
 
