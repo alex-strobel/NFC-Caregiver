@@ -1,6 +1,6 @@
 # NFC-Caregiver
 
-The project "Need for Cognition (NFC) burnout in healthcare" investigates the relationship of NFC and burnout symptoms in healthcare workers. Following up on [previous research](https://doi.org/10.1525/collabra.92885), we assume that NFC is primarily related to the burnout dimension *reduced rersonal efficiency*, but also explore possible relations to the other burnout dimensions *emotional exhaustion* and *depersonalization*. We are especially interested possible mediators of this relationship, namely self-control as well as the habitual use of emotion regulation and coping strategies. 
+The project "Need for Cognition (NFC) burnout in healthcare" investigates the relationship of NFC and burnout symptoms in healthcare workers. Following up on [previous research](https://doi.org/10.1525/collabra.92885), we assume that NFC is primarily related to the burnout dimension *reduced personal efficiency*, but also explore possible relations to the other burnout dimensions *emotional exhaustion* and *depersonalization*. We are especially interested possible mediators of this relationship, namely self-control as well as the habitual use of emotion regulation and coping strategies. 
 
 For the pregregistration of this study, see: https://osf.io/d6y9k
 
