@@ -275,6 +275,38 @@ report_cor <- function(x1, x2) {
   return(result)
 }
 
+# minimum rs with CI.lower > 0
+
+r_corr <- function(rho, nobs, nvars, precision = 0) {
+
+  #' Generate correlated random variables
+  #'
+  #' Creates a simulated dataset with a specified correlation value or matrix.
+  #'
+  #' @param rho A single correlation coefficient or a correlation matrix.
+  #' @param nobs Number of observations.
+  #' @param nvars Number of variables.
+  #' @param precision Required matching precision (0 = no iterative correction, 3 = may take very long).
+  #'
+  #' @return A data frame with simulated correlated variables.
+
+  C <- if (length(rho)==1) { m <- matrix(rho,nvars,nvars); diag(m) <- 1; m } else rho
+  A <- chol(C)
+  repeat {
+    Y <- matrix(rnorm(nobs*nvars), ncol=nvars) %*% A
+    if (precision==0 || all(round(cor(Y),precision)==round(C,precision))) break
+  }
+  as.data.frame(Y)
+}
+
+CIs = NULL
+for (i in 1:1000) {
+  dfi=r_corr(.08,642,2,precision=3)
+  CIs = rbind(CIs, corr.test(dfi, method="spearman")$ci)
+}
+
+min_rs = CIs[CIs$lower == min(CIs$lower[which(CIs$lower > 0)]), ]$r
+
 # classify correlations according to Gignac & Szodorai (2016)
 classify_r <- function(x1, x2) {
   r = as.numeric(corr.test(x1, x2, method = "spearman")$ci['r'])
@@ -295,8 +327,7 @@ classify_r <- function(x1, x2) {
 # report correlations with effect size, 95% CI, and p value
 report_cor <- function(x1, x2) {
   ct = corr.test(x1, x2, method = "spearman")
-  if (ct$p < .001) { p = "< .001" } else { p = paste0("= ", print_p(ct$p)) }
-  result = paste0('$r_{s}=$ ', printnum(ct$ci['r'], gt1=F), ', 95% CI [', printnum(ct$ci['lower'], gt1=F), ', ', printnum(ct$ci['upper'], gt1=F), '], $p$ ', p)
+  result = paste0('$r_{s}=$ ', printnum(ct$ci['r'], gt1=F), ', 95% CI [', printnum(ct$ci['lower'], gt1=F), ', ', printnum(ct$ci['upper'], gt1=F), ']')
   return(result)
 }
 
@@ -318,7 +349,7 @@ classify_r <- function(x1, x2) {
 }
 
 ```
-Robust tests were used to account for deviation from univariate and multivariate normality of the study variables, i.e. the MBI subscales, NFC, self-control, emotion regulation strategies, and coping styles; Shapiro-Wilk and Mardia tests, all $p\ge.001$). Spearman correlations were calculated to address the research questions (RQ) regarding bivariate relationships between Need for Cognition (NFC), self-control, adaptive and maladaptive coping strategies, the emotion regulation strategies reappraisal and suppression with the burnout dimensions *reduced personal efficiency* (rPE; RQ1), *emotional exhaustion* (EE; RQ2), and *depersonalization* (DE; RQ3). Statistical significance was evaluated based on the correlations' 95% CI not including zero, which with our sample size was the case for all $|r_{s}|\ge.141$. Effect size classification followed empirically derived thresholds [@Gignac-2016], i.e., $r_{s} \ge$ .10, .20, and .30 for small, medium, and large correlations. To address the research questions on possible mediation effects, i.e., whether self-control, reappraisal and suppression, and adaptive and maladaptive coping mediate the relationship between NFC and the burnout dimensions rPE (RQ4), EE (RQ5), and DE (RQ6), multiple mediation models were tested using *lavaan* with robust Maximum Likelihood estimation of standard errors.
+Robust tests were used to account for deviation from univariate and multivariate normality of the study variables, i.e. the MBI subscales, NFC, self-control, emotion regulation strategies, and coping styles; Shapiro-Wilk and Mardia tests, all $p\ge.001$). Spearman correlations were calculated to address the research questions (RQ) regarding bivariate relationships between Need for Cognition (NFC), self-control, adaptive and maladaptive coping strategies, the emotion regulation strategies reappraisal and suppression with the burnout dimensions *reduced personal efficiency* (rPE; RQ1), *emotional exhaustion* (EE; RQ2), and *depersonalization* (DE; RQ3). Statistical significance was evaluated based on the correlations' 95% CI not including zero, which with our sample size was the case for all $|r_{s}|\ge$ `r printnum(min_rs, gt1 = F, digits = 3)`. Effect size classification followed empirically derived thresholds [@Gignac-2016], i.e., $r_{s} \ge$ .10, .20, and .30 for small, medium, and large correlations. To address the research questions on possible mediation effects, i.e., whether self-control, reappraisal and suppression, and adaptive and maladaptive coping mediate the relationship between NFC and the burnout dimensions rPE (RQ4), EE (RQ5), and DE (RQ6), multiple mediation models were tested using *lavaan* with Maximum Likelihood estimation and bootstrapped  standard errors (5,000 bootstrap samples). Inference was again based on the paths' 95% CI (bias-corrected) not including zero. 
 
 # Results
 
@@ -359,7 +390,7 @@ We examined links between Need for Cognition (NFC), self-control, the habitual u
 ### Research Question 3  
 For *depersonalization*, no correlations emerged for NFC, `r report_cor(df_analysis$mbi_de, df_analysis$nfc)`, or self-control, `r report_cor(df_analysis$mbi_de, df_analysis$scs)`, but significant ones appeared for reappraisal, `r report_cor(df_analysis$mbi_de, df_analysis$erq_reap)`, suppression, `r report_cor(df_analysis$mbi_de, df_analysis$erq_supp)`, as well as for both coping strategies, `r report_cor(df_analysis$mbi_de, df_analysis$sci_a)`, and `r report_cor(df_analysis$mbi_de, df_analysis$sci_ma)`.  
 
-Figures 1–3 summarize the mediation analyses (research questions 4–6). Only standardized coefficients and $p$-values are reported for ease of reading; full statistics appear in Tables 2–4. 
+Figures 1–3 give the standardized coefficients obtained in the mediation analyses (research questions 4–6). Full statistics appear in Tables 2–4. 
 
 ```{r mediation, echo = F, warning = F}
 model_mbi = "
@@ -411,9 +442,8 @@ report_pe <-  function(fit, label=NULL, txt = F, beta_only = F) {
     result = pe[which(pe[,1]==label),]
   }
   if (txt == T & length(label) == 1) {
-    if (result$pvalue < .001) { p = " < .001" } else { p = paste0(" = ", printp(result$pvalue)) }
     if (beta_only == F) {
-    result = paste0("$B=$ ", printnum(result$est, gt1=T), ", $SE=$ ", printnum(result$se, gt1=T), ", 95% CI [", printnum(result$ci.lower, gt1=T), ", ", printnum(result$ci.upper, gt1=T), "], $p$ ", p, ", $\\beta=$ ", printnum(result$std.all, gt1 = F))
+    result = paste0("$B=$ ", printnum(result$est, gt1=T, digits = 3), ", $SE=$ ", printnum(result$se, gt1=T, digits = 3), ", 95% CI [", printnum(result$ci.lower, gt1=T, digits = 3), ", ", printnum(result$ci.upper, gt1=T, digits = 3), "], $\\beta=$ ", printnum(result$std.all, gt1 = F, digits = 3))
     } else {
     result = paste0("$\\beta=$ ", printnum(result$std.all, gt1 = F), ", $p$", p)  
     }
@@ -428,10 +458,15 @@ report_pe <-  function(fit, label=NULL, txt = F, beta_only = F) {
 model_rpe = gsub("mbi", "mbi_rpe", model_mbi)
 
 # fit rpe model
-fit_rpe=sem(model_rpe, df_analysis, estimator="MLR")
+fit_rpe=sem(model_rpe, 
+            df_analysis,
+            se = "bootstrap",
+            bootstrap = 5000L,
+            parallel = "multicore",
+            ncpus = 7)
 
 # create table with parameter estimates
-pe_rpe = parameterEstimates(fit_rpe, standardized = T)
+pe_rpe = parameterEstimates(fit_rpe, standardized = T, boot.ci.type = "bca.simple")
 pe_rpe_table=printnum(pe_rpe[c(1:11,19:24),c("est","se","ci.lower", "ci.upper", "pvalue", "std.all")], digits = 3)
 
 # create data.frame for table
@@ -458,24 +493,30 @@ apa_table(
                       `\\textit{Indirect effects}` = 12:16),
   midrules = c(1,7,13,19), 
   caption = "Mediation of the effect of Need for Cognition (NFC) on reduced personal efficiency (rPE)",
-  note = "$N=642$. $B$ = unstandardized coefficient, $SE$ = standard error of $B$, $LB/UB$ = lower and upper bound of the 95\\% confidence interval, $p$ = $p$-value, $\\beta$ = standardized coefficient, a = paths from predictor to mediator, b = paths from mediator to outcome, ind = indirect effects a*b."
+  note = "$N=642$. $B$ = unstandardized coefficient, $SE$ = standard error of $B$, $LB/UB$ = lower and upper bound of the 95\\% bias-corrected bootstrap confidence interval, $p$ = $p$-value, $\\beta$ = standardized coefficient, a = paths from predictor to mediator, b = paths from mediator to outcome, ind = indirect effects a*b."
 )
 ```
 
 ### Research Question 4
-Figure 1 and Table 2 present the results of the multiple mediation analysis for *reduced personal efficiency*. Roughly half of the total effect, `r report_pe(fit_rpe, 'total', txt = T, beta_only = T)`, stemmed from the direct path of NFC on reduced personal efficiency, `r report_pe(fit_rpe, 'c', txt = T, beta_only = T)`. While NFC predicted self-control, `r report_pe(fit_rpe, 'a1', txt = T, beta_only = T)`, self-control did not predict reduced personal efficiency, `r report_pe(fit_rpe, 'b1', txt = T, beta_only = T)`, hence, no mediation occured, `r report_pe(fit_rpe, 'ind1', txt = T, beta_only = T)` (H4a). Reappraisal partly mediated the NFC–efficiency link, `r report_pe(fit_rpe, 'ind2', txt = T, beta_only = T)` (H4b), while suppression did not, `r report_pe(fit_rpe, 'ind3', txt = T, beta_only = T)` (H4c). Adaptive coping mediated the effect of NFC on reduced personal efficiency, , `r report_pe(fit_rpe, 'ind4', txt = T, beta_only = T)` (H4d). Although NFC predicted maladaptive coping, `r report_pe(fit_rpe, 'a5', txt = T, beta_only = T)`, a mediation effect of maladaptive coping was not supported, , `r report_pe(fit_rpe, 'ind5', txt = T, beta_only = T)` (H4e).
+Figure 1 and Table 2 present the results of the multiple mediation analysis for *reduced personal efficiency*. Roughly half of the total effect, `r report_pe(fit_rpe, 'total', txt = T, beta_only = F)`, stemmed from the direct path of NFC on reduced personal efficiency, `r report_pe(fit_rpe, 'c', txt = T, beta_only = F)`. While NFC predicted self-control, `r report_pe(fit_rpe, 'a1', txt = T, beta_only = F)`, self-control did not predict reduced personal efficiency, `r report_pe(fit_rpe, 'b1', txt = T, beta_only = F)`, hence, no mediation occured, `r report_pe(fit_rpe, 'ind1', txt = T, beta_only = F)` (H4a). Habitual emotion regulation strategies did not mediate the NFC–efficiency link, neither for reappraisal, `r report_pe(fit_rpe, 'ind2', txt = T, beta_only = F)` (H4b), nor for suppression, `r report_pe(fit_rpe, 'ind3', txt = T, beta_only = F)` (H4c). Adaptive coping mediated the effect of NFC on reduced personal efficiency, , `r report_pe(fit_rpe, 'ind4', txt = T, beta_only = F)` (H4d). Although NFC predicted maladaptive coping, `r report_pe(fit_rpe, 'a5', txt = T, beta_only = F)`, a mediation effect of maladaptive coping was not supported, `r report_pe(fit_rpe, 'ind5', txt = T, beta_only = F)` (H4e).
 
-![Multiple mediation of the relationship between Need for Cognition with the burnout dimension reduced personal efficiency. Standardized coefficients are given (bold: $p<.05$). Indirect paths are provided above the mediators, the remaining direct effect is given at the bottom of the figure together with the total effect (in brackets).](NFC-Caregiver_figures/Fig1.eps)
+![Multiple mediation of the relationship between Need for Cognition with the burnout dimension reduced personal efficiency. Standardized coefficients are given (bold: 95% bias-correted bootstrap CI of unstandardized effect does not include zero). Indirect paths are provided above the mediators, the remaining direct effect is given at the bottom of the figure together with the total effect (in brackets).](NFC-Caregiver_figures/Fig1.eps)
 
 ```{r RQ5, echo = F, warning = F}
 # specify model for emotional exhaustion (ee)
 model_ee = gsub("mbi", "mbi_ee", model_mbi)
 
 # fit ee model
-fit_ee=sem(model_ee, df_analysis, estimator="MLR")
+fit_ee=sem(model_ee,
+           df_analysis,
+           se = "bootstrap",
+           bootstrap = 5000L,
+           parallel = "multicore",
+           ncpus = 7
+)
 
 # create table with parameter estimates
-pe_ee = parameterEstimates(fit_ee, standardized = T)
+pe_ee = parameterEstimates(fit_ee, standardized = T, boot.ci.type = "bca.simple")
 pe_ee_table=printnum(pe_ee[c(1:11,19:24),c("est","se","ci.lower", "ci.upper", "pvalue", "std.all")], digits = 3)
 
 # create data.frame for table
@@ -502,24 +543,30 @@ apa_table(
                       `\\textit{Indirect effects}` = 12:16),
   midrules = c(1,7,13,19), 
   caption = "Mediation of the effect of Need for Cognition (NFC) on emotional exhaustion (EE)",
-  note = "$N=642$. $B$ = unstandardized coefficient, $SE$ = standard error of $B$, $LB/UB$ = lower and upper bound of the 95\\% confidence interval, $p$ = $p$-value, $\\beta$ = standardized coefficient, a = paths from predictor to mediator, b = paths from mediator to outcome, ind = indirect effects a*b."
+  note = "$N=642$. $B$ = unstandardized coefficient, $SE$ = standard error of $B$, $LB/UB$ = lower and upper bound of the 95\\% bias-corrected bootstrap confidence interval, $p$ = $p$-value, $\\beta$ = standardized coefficient, a = paths from predictor to mediator, b = paths from mediator to outcome, ind = indirect effects a*b."
 )
 ```
 
 ### Research Question 5  
-Figure 2 and Table 3 show the model for *emotional exhaustion*. Less than half of the total effect, `r report_pe(fit_ee, 'total', txt = T, beta_only = T)`, was due to the direct path, `r report_pe(fit_ee, 'c', txt = T, beta_only = T)`. Mediation occurred for adaptive coping, `r report_pe(fit_ee, 'ind4', txt = T, beta_only = T)`, and maladaptive coping, `r report_pe(fit_ee, 'ind5', txt = T, beta_only = T)`, but not for self-control, `r report_pe(fit_ee, 'ind1', txt = T, beta_only = T)`, reappraisal, `r report_pe(fit_ee, 'ind2', txt = T, beta_only = T)`, or suppression, `r report_pe(fit_ee, 'ind3', txt = T, beta_only = T)`.
+Figure 2 and Table 3 show the model for *emotional exhaustion*. Less than half of the total effect, `r report_pe(fit_ee, 'total', txt = T, beta_only = F)`, was due to the direct path, `r report_pe(fit_ee, 'c', txt = T, beta_only = F)`. Mediation occurred for adaptive coping, `r report_pe(fit_ee, 'ind4', txt = T, beta_only = F)`, and maladaptive coping, `r report_pe(fit_ee, 'ind5', txt = T, beta_only = F)`, but not for self-control, `r report_pe(fit_ee, 'ind1', txt = T, beta_only = F)`, reappraisal, `r report_pe(fit_ee, 'ind2', txt = T, beta_only = F)`, or suppression, `r report_pe(fit_ee, 'ind3', txt = T, beta_only = F)`.
 
-![Multiple mediation of the relationship between Need for Cognition with the burnout dimension emotional exhaustion. Standardized coefficients are given (bold: $p< .05$). Indirect paths are provided above the mediators, the remaining direct effect is given at the bottom of the figure together with the total effect (in brackets).](NFC-Caregiver_figures/Fig2.eps)
+![Multiple mediation of the relationship between Need for Cognition with the burnout dimension emotional exhaustion. Standardized coefficients are given (bold: 95% bias-correted bootstrap CI of unstandardized effect does not include zero). Indirect paths are provided above the mediators, the remaining direct effect is given at the bottom of the figure together with the total effect (in brackets).](NFC-Caregiver_figures/Fig2.eps)
 
 ```{r RQ6, echo = F, warning = F}
 # specify model for depersonalization (de)
 model_de = gsub("mbi", "mbi_de", model_mbi)
 
 # fit de model
-fit_de=sem(model_de, df_analysis, estimator="MLR")
+fit_de=sem(model_de,
+           df_analysis,
+           se = "bootstrap",
+           bootstrap = 5000L,
+           parallel = "multicore",
+           ncpus = 7
+)
 
 # create table with parameter estimates
-pe_de = parameterEstimates(fit_de, standardized = T)
+pe_de = parameterEstimates(fit_de, standardized = T, boot.ci.type = "bca.simple")
 pe_de_table=printnum(pe_de[c(1:11,19:24),c("est","se","ci.lower", "ci.upper", "pvalue", "std.all")], digits = 3)
 
 # create data.frame for table
@@ -546,14 +593,14 @@ apa_table(
                       `\\textit{Indirect effects}` = 12:16),
   midrules = c(1,7,13,19), 
   caption = "Mediation of the effect of Need for Cognition (NFC) on depersonalization (DE)",
-  note = "$N=642$. $B$ = unstandardized coefficient, $SE$ = standard error of $B$, $LB/UB$ = lower and upper bound of the 95\\% confidence interval, $p$ = $p$-value, $\\beta$ = standardized coefficient, a = paths from predictor to mediator, b = paths from mediator to outcome, ind = indirect effects a*b."
+  note = "$N=642$. $B$ = unstandardized coefficient, $SE$ = standard error of $B$, $LB/UB$ = lower and upper bound of the 95\\% bias-corrected bootstrap confidence interval, $p$ = $p$-value, $\\beta$ = standardized coefficient, a = paths from predictor to mediator, b = paths from mediator to outcome, ind = indirect effects a*b."
 )
 ```
 
 ### Research Question 6  
-Figure 3 and Table 4 show the model for *depersonalization*. About one third of the total effect, `r report_pe(fit_de, 'total', txt = T, beta_only = T)`, reflected the direct path, `r report_pe(fit_de, 'c', txt = T, beta_only = T)`. Again, mediation was found for adaptive and maladaptive coping, `r report_pe(fit_de, 'ind4', txt = T, beta_only = T)`, and `r report_pe(fit_de, 'ind5', txt = T, beta_only = T)`, but not for self-control, `r report_pe(fit_de, 'ind1', txt = T, beta_only = T)`, reappraisal, `r report_pe(fit_de, 'ind2', txt = T, beta_only = T)`, or suppression, `r report_pe(fit_de, 'ind3', txt = T, beta_only = T)`.  
+Figure 3 and Table 4 show the model for *depersonalization*. About one third of the total effect, `r report_pe(fit_de, 'total', txt = T, beta_only = F)`, reflected the direct path, `r report_pe(fit_de, 'c', txt = T, beta_only = F)`. Again, mediation was found for adaptive and maladaptive coping, `r report_pe(fit_de, 'ind4', txt = T, beta_only = F)`, and `r report_pe(fit_de, 'ind5', txt = T, beta_only = F)`, but not for self-control, `r report_pe(fit_de, 'ind1', txt = T, beta_only = F)`, reappraisal, `r report_pe(fit_de, 'ind2', txt = T, beta_only = F)`, or suppression, `r report_pe(fit_de, 'ind3', txt = T, beta_only = F)`.  
 
-![Multiple mediation of the relationship between Need for Cognition with the burnout dimension depersonalization. Standardized coefficients are given (bold: $p< .05$). Indirect paths are provided above the mediators, the remaining direct effect is given at the bottom of the figure together with the total effect (in brackets).](NFC-Caregiver_figures/Fig3.eps)
+![Multiple mediation of the relationship between Need for Cognition with the burnout dimension depersonalization. Standardized coefficients are given (bold: 95% bias-correted bootstrap CI of unstandardized effect does not include zero). Indirect paths are provided above the mediators, the remaining direct effect is given at the bottom of the figure together with the total effect (in brackets).](NFC-Caregiver_figures/Fig3.eps)
 
 ```{r save_image, echo = F, warning = F}
 save.image(here("Data", "NFC-Caregiver_RMarkdown-generated.RData"))
@@ -562,7 +609,7 @@ save.image(here("Data", "NFC-Caregiver_RMarkdown-generated.RData"))
 
 # Discussion
 <!--
-Summary/Evaluation by **ChatGPT**:
+Summary/Evaluation by **ChatGPT** (somewhat outdated because now we use bootstraping, some effects meay have gone, others may have appeared):
 
 (1) Check of hypotheses vs. results
 H1a (NFC - self-control, moderate positive)

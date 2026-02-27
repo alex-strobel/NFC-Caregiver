@@ -363,9 +363,9 @@ This subscale had a questionable internal consistency of MacDonald's \(\omega=\)
 
 \subsection{Statistical analyses}\label{statistical-analyses}
 
-We used R (Version 4.5.2; R Core Team, 2024) and the R-packages \emph{dplyr} (Version 1.1.4; Wickham et al., 2023), \emph{here} (Version 1.0.2; Müller, 2020), \emph{lavaan} (Version 0.6.20; Rosseel, 2012), \emph{papaja} (Version 0.1.4; Aust \& Barth, 2024), \emph{psych} (Version 2.5.6; Revelle, 2024), \emph{RStudio} (Posit Team, 2024), \emph{shape} (Version 1.4.6.1; Soetaert, 2024), and \emph{tinylabels} (Version 0.2.5; Barth, 2025) for our analyses.
+We used R (Version 4.5.2; R Core Team, 2024) and the R-packages \emph{dplyr} (Version 1.2.0; Wickham et al., 2023), \emph{here} (Version 1.0.2; Müller, 2020), \emph{lavaan} (Version 0.6.21; Rosseel, 2012), \emph{papaja} (Version 0.1.4; Aust \& Barth, 2024), \emph{psych} (Version 2.6.1; Revelle, 2024), \emph{RStudio} (Posit Team, 2024), \emph{shape} (Version 1.4.6.1; Soetaert, 2024), and \emph{tinylabels} (Version 0.2.5; Barth, 2025) for our analyses.
 
-Robust tests were used to account for deviation from univariate and multivariate normality of the study variables, i.e.~the MBI subscales, NFC, self-control, emotion regulation strategies, and coping styles; Shapiro-Wilk and Mardia tests, all \(p\ge.001\)). Spearman correlations were calculated to address the research questions (RQ) regarding bivariate relationships between Need for Cognition (NFC), self-control, adaptive and maladaptive coping strategies, the emotion regulation strategies reappraisal and suppression with the burnout dimensions \emph{reduced personal efficiency} (rPE; RQ1), \emph{emotional exhaustion} (EE; RQ2), and \emph{depersonalization} (DE; RQ3). Statistical significance was evaluated based on the correlations' 95\% CI not including zero, which with our sample size was the case for all \(|r_{s}|\ge.141\). Effect size classification followed empirically derived thresholds (Gignac \& Szodorai, 2016), i.e., \(r_{s} \ge\) .10, .20, and .30 for small, medium, and large correlations. To address the research questions on possible mediation effects, i.e., whether self-control, reappraisal and suppression, and adaptive and maladaptive coping mediate the relationship between NFC and the burnout dimensions rPE (RQ4), EE (RQ5), and DE (RQ6), multiple mediation models were tested using \emph{lavaan} with robust Maximum Likelihood estimation of standard errors.
+Robust tests were used to account for deviation from univariate and multivariate normality of the study variables, i.e.~the MBI subscales, NFC, self-control, emotion regulation strategies, and coping styles; Shapiro-Wilk and Mardia tests, all \(p\ge.001\)). Spearman correlations were calculated to address the research questions (RQ) regarding bivariate relationships between Need for Cognition (NFC), self-control, adaptive and maladaptive coping strategies, the emotion regulation strategies reappraisal and suppression with the burnout dimensions \emph{reduced personal efficiency} (rPE; RQ1), \emph{emotional exhaustion} (EE; RQ2), and \emph{depersonalization} (DE; RQ3). Statistical significance was evaluated based on the correlations' 95\% CI not including zero, which with our sample size was the case for all \(|r_{s}|\ge\) .077. Effect size classification followed empirically derived thresholds (Gignac \& Szodorai, 2016), i.e., \(r_{s} \ge\) .10, .20, and .30 for small, medium, and large correlations. To address the research questions on possible mediation effects, i.e., whether self-control, reappraisal and suppression, and adaptive and maladaptive coping mediate the relationship between NFC and the burnout dimensions rPE (RQ4), EE (RQ5), and DE (RQ6), multiple mediation models were tested using \emph{lavaan} with Maximum Likelihood estimation and bootstrapped standard errors (5,000 bootstrap samples). Inference was again based on the paths' 95\% CI (bias-corrected) not including zero.
 
 \section{Results}\label{results}
 
@@ -419,17 +419,17 @@ Table 1 shows bivariate Spearman correlations between the study variables. Resul
 
 \subsubsection{Research Question 1}\label{research-question-1}
 
-We examined links between Need for Cognition (NFC), self-control, the habitual use of the emotion strategies reappraisal and suppression, coping strategies, and \emph{reduced personal efficiency}. We observed a large positive correlation between NFC and self-control, \(r_{s}=\) .56, 95\% CI {[}.51, .61{]}, \(p\) \textless{} .001 (H1a), but no correlation with reappraisal, \(r_{s}=\) .06, 95\% CI {[}-.02, .14{]}, \(p\) = .128, or suppression, \(r_{s}=\) -.01, 95\% CI {[}-.08, .07{]}, \(p\) = .877 (H1b). NFC showed a small positive correlation with adaptive coping, \(r_{s}=\) .15, 95\% CI {[}.07, .22{]}, \(p\) \textless{} .001, and a large negative correlation with maladaptive coping, \(r_{s}=\) -.30, 95\% CI {[}-.37, -.23{]}, \(p\) \textless{} .001 (H1c). \emph{Reduced personal efficiency} correlated with NFC, \(r_{s}=\) -.19, 95\% CI {[}-.26, -.11{]}, \(p\) \textless{} .001, i.e.~a small negative effect (H1d), self-control, \(r_{s}=\) -.18, 95\% CI {[}-.25, -.10{]}, \(p\) \textless{} .001, i.e.~a small negative effect (H1e), reappraisal and suppression, \(r_{s}=\) -.29, 95\% CI {[}-.36, -.21{]}, \(p\) \textless{} .001, i.e.~a medium negative effect, and \(r_{s}=\) .12, 95\% CI {[}.05, .20{]}, \(p\) = .002, i.e.~a small positive effect (H1f), as well as adaptive and maladaptive coping, \(r_{s}=\) -.42, 95\% CI {[}-.48, -.35{]}, \(p\) \textless{} .001, i.e.~a large negative effect, and \(r_{s}=\) .11, 95\% CI {[}.03, .18{]}, \(p\) = .007, i.e.~a small positive effect (H1g).
+We examined links between Need for Cognition (NFC), self-control, the habitual use of the emotion strategies reappraisal and suppression, coping strategies, and \emph{reduced personal efficiency}. We observed a large positive correlation between NFC and self-control, \(r_{s}=\) .56, 95\% CI {[}.51, .61{]} (H1a), but no correlation with reappraisal, \(r_{s}=\) .06, 95\% CI {[}-.02, .14{]}, or suppression, \(r_{s}=\) -.01, 95\% CI {[}-.08, .07{]} (H1b). NFC showed a small positive correlation with adaptive coping, \(r_{s}=\) .15, 95\% CI {[}.07, .22{]}, and a large negative correlation with maladaptive coping, \(r_{s}=\) -.30, 95\% CI {[}-.37, -.23{]} (H1c). \emph{Reduced personal efficiency} correlated with NFC, \(r_{s}=\) -.19, 95\% CI {[}-.26, -.11{]}, i.e.~a small negative effect (H1d), self-control, \(r_{s}=\) -.18, 95\% CI {[}-.25, -.10{]}, i.e.~a small negative effect (H1e), reappraisal and suppression, \(r_{s}=\) -.29, 95\% CI {[}-.36, -.21{]}, i.e.~a medium negative effect, and \(r_{s}=\) .12, 95\% CI {[}.05, .20{]}, i.e.~a small positive effect (H1f), as well as adaptive and maladaptive coping, \(r_{s}=\) -.42, 95\% CI {[}-.48, -.35{]}, i.e.~a large negative effect, and \(r_{s}=\) .11, 95\% CI {[}.03, .18{]}, i.e.~a small positive effect (H1g).
 
 \subsubsection{Research Question 2}\label{research-question-2}
 
-\emph{Emotional exhaustion} correlated with all variables: NFC, \(r_{s}=\) -.18, 95\% CI {[}-.26, -.11{]}, \(p\) \textless{} .001, self-control, \(r_{s}=\) -.14, 95\% CI {[}-.21, -.06{]}, \(p\) \textless{} .001, reappraisal, \(r_{s}=\) -.15, 95\% CI {[}-.22, -.07{]}, \(p\) \textless{} .001, and suppression, \(r_{s}=\) .13, 95\% CI {[}.06, .21{]}, \(p\) \textless{} .001, and both coping strategies, \(r_{s}=\) -.37, 95\% CI {[}-.43, -.30{]}, \(p\) \textless{} .001, and \(r_{s}=\) .22, 95\% CI {[}.14, .29{]}, \(p\) \textless{} .001.
+\emph{Emotional exhaustion} correlated with all variables: NFC, \(r_{s}=\) -.18, 95\% CI {[}-.26, -.11{]}, self-control, \(r_{s}=\) -.14, 95\% CI {[}-.21, -.06{]}, reappraisal, \(r_{s}=\) -.15, 95\% CI {[}-.22, -.07{]}, and suppression, \(r_{s}=\) .13, 95\% CI {[}.06, .21{]}, and both coping strategies, \(r_{s}=\) -.37, 95\% CI {[}-.43, -.30{]}, and \(r_{s}=\) .22, 95\% CI {[}.14, .29{]}.
 
 \subsubsection{Research Question 3}\label{research-question-3}
 
-For \emph{depersonalization}, no correlations emerged for NFC, \(r_{s}=\) -.07, 95\% CI {[}-.15, .00{]}, \(p\) = .064, or self-control, \(r_{s}=\) -.08, 95\% CI {[}-.15, .00{]}, \(p\) = .050, but significant ones appeared for reappraisal, \(r_{s}=\) -.18, 95\% CI {[}-.25, -.10{]}, \(p\) \textless{} .001, suppression, \(r_{s}=\) .26, 95\% CI {[}.18, .33{]}, \(p\) \textless{} .001, as well as for both coping strategies, \(r_{s}=\) -.28, 95\% CI {[}-.35, -.21{]}, \(p\) \textless{} .001, and \(r_{s}=\) .15, 95\% CI {[}.07, .22{]}, \(p\) \textless{} .001.
+For \emph{depersonalization}, no correlations emerged for NFC, \(r_{s}=\) -.07, 95\% CI {[}-.15, .00{]}, or self-control, \(r_{s}=\) -.08, 95\% CI {[}-.15, .00{]}, but significant ones appeared for reappraisal, \(r_{s}=\) -.18, 95\% CI {[}-.25, -.10{]}, suppression, \(r_{s}=\) .26, 95\% CI {[}.18, .33{]}, as well as for both coping strategies, \(r_{s}=\) -.28, 95\% CI {[}-.35, -.21{]}, and \(r_{s}=\) .15, 95\% CI {[}.07, .22{]}.
 
-Figures 1--3 summarize the mediation analyses (research questions 4--6). Only standardized coefficients and \(p\)-values are reported for ease of reading; full statistics appear in Tables 2--4.
+Figures 1--3 give the standardized coefficients obtained in the mediation analyses (research questions 4--6). Full statistics appear in Tables 2--4.
 
 \begin{table}[tbp]
 
@@ -444,26 +444,26 @@ Figures 1--3 summarize the mediation analyses (research questions 4--6). Only st
 \toprule
  & \multicolumn{1}{c}{$B$} & \multicolumn{1}{c}{$SE$} & \multicolumn{1}{c}{$LB$} & \multicolumn{1}{c}{$UB$} & \multicolumn{1}{c}{$p$} & \multicolumn{1}{c}{$\beta$}\\
 \midrule
-\textit{Direct effect of NFC on rPE} & -0.029 & 0.012 & -0.053 & -0.005 & .017 & -.110\\ \midrule
+\textit{Direct effect of NFC on rPE} & -0.029 & 0.012 & -0.052 & -0.005 & .016 & -.110\\ \midrule
 \textit{NFC to Mediators} &  &  &  &  &  & \\
-\ \ \ a1: Self-Control & 0.277 & 0.015 & 0.247 & 0.307 & < .001 & .600\\
-\ \ \ a2: Reappraisal & 0.040 & 0.016 & 0.009 & 0.071 & .012 & .104\\
-\ \ \ a3: Suppression & -0.011 & 0.013 & -0.036 & 0.015 & .412 & -.034\\
-\ \ \ a4: Adaptive Coping & 0.074 & 0.015 & 0.045 & 0.103 & < .001 & .194\\
+\ \ \ a1: Self-Control & 0.277 & 0.015 & 0.247 & 0.306 & < .001 & .600\\
+\ \ \ a2: Reappraisal & 0.040 & 0.015 & 0.010 & 0.070 & .010 & .104\\
+\ \ \ a3: Suppression & -0.011 & 0.013 & -0.035 & 0.015 & .409 & -.034\\
+\ \ \ a4: Adaptive Coping & 0.074 & 0.015 & 0.045 & 0.104 & < .001 & .194\\
 \ \ \ a5: Maladaptive Coping & -0.042 & 0.005 & -0.052 & -0.033 & < .001 & -.330\\ \midrule
 \textit{Mediators to rPE} &  &  &  &  &  & \\
-\ \ \ b1: Self-Control & -0.025 & 0.028 & -0.081 & 0.030 & .371 & -.044\\
-\ \ \ b2: Reappraisal & -0.088 & 0.030 & -0.148 & -0.029 & .004 & -.127\\
-\ \ \ b3: Suppression & 0.054 & 0.034 & -0.013 & 0.121 & .112 & .064\\
-\ \ \ b4: Adaptive Coping & -0.256 & 0.036 & -0.326 & -0.185 & < .001 & -.366\\
-\ \ \ b5: Maladaptive Coping & 0.008 & 0.078 & -0.145 & 0.160 & .921 & .004\\ \midrule
+\ \ \ b1: Self-Control & -0.025 & 0.028 & -0.082 & 0.028 & .362 & -.044\\
+\ \ \ b2: Reappraisal & -0.088 & 0.031 & -0.150 & -0.028 & .005 & -.127\\
+\ \ \ b3: Suppression & 0.054 & 0.034 & -0.013 & 0.121 & .114 & .064\\
+\ \ \ b4: Adaptive Coping & -0.256 & 0.036 & -0.327 & -0.183 & < .001 & -.366\\
+\ \ \ b5: Maladaptive Coping & 0.008 & 0.078 & -0.146 & 0.159 & .921 & .004\\ \midrule
 \textit{Indirect effects} &  &  &  &  &  & \\
-\ \ \ ind1: Self-Control & -0.007 & 0.008 & -0.022 & 0.008 & .370 & -.027\\
-\ \ \ ind2: Reappraisal & -0.004 & 0.002 & -0.007 & 0.000 & .049 & -.013\\
-\ \ \ ind3: Suppression & -0.001 & 0.001 & -0.002 & 0.001 & .464 & -.002\\
-\ \ \ ind4: Adaptive Coping & -0.019 & 0.004 & -0.028 & -0.010 & < .001 & -.071\\
-\ \ \ ind5: Maladaptive Coping & 0.000 & 0.003 & -0.007 & 0.006 & .921 & -.001\\ \midrule
-\textit{Total effect} & -0.060 & 0.010 & -0.080 & -0.039 & < .001 & -.225\\
+\ \ \ ind1: Self-Control & -0.007 & 0.008 & -0.023 & 0.008 & .362 & -.027\\
+\ \ \ ind2: Reappraisal & -0.004 & 0.002 & -0.008 & -0.001 & .057 & -.013\\
+\ \ \ ind3: Suppression & -0.001 & 0.001 & -0.003 & 0.001 & .522 & -.002\\
+\ \ \ ind4: Adaptive Coping & -0.019 & 0.005 & -0.030 & -0.011 & < .001 & -.071\\
+\ \ \ ind5: Maladaptive Coping & 0.000 & 0.003 & -0.007 & 0.006 & .922 & -.001\\ \midrule
+\textit{Total effect} & -0.060 & 0.010 & -0.079 & -0.038 & < .001 & -.225\\
 \bottomrule
 \addlinespace
 \end{tabular}
@@ -481,7 +481,7 @@ Figures 1--3 summarize the mediation analyses (research questions 4--6). Only st
 
 \subsubsection{Research Question 4}\label{research-question-4}
 
-Figure 1 and Table 2 present the results of the multiple mediation analysis for \emph{reduced personal efficiency}. Roughly half of the total effect, \(\beta=\) -.22, \(p\) \textless{} .001, stemmed from the direct path of NFC on reduced personal efficiency, \(\beta=\) -.11, \(p\) = .017. While NFC predicted self-control, \(\beta=\) .60, \(p\) \textless{} .001, self-control did not predict reduced personal efficiency, \(\beta=\) -.04, \(p\) = .371, hence, no mediation occured, \(\beta=\) -.03, \(p\) = .370 (H4a). Reappraisal partly mediated the NFC--efficiency link, \(\beta=\) -.01, \(p\) = .049 (H4b), while suppression did not, \(\beta=\) .00, \(p\) = .464 (H4c). Adaptive coping mediated the effect of NFC on reduced personal efficiency, , \(\beta=\) -.07, \(p\) \textless{} .001 (H4d). Although NFC predicted maladaptive coping, \(\beta=\) -.33, \(p\) \textless{} .001, a mediation effect of maladaptive coping was not supported, , \(\beta=\) .00, \(p\) = .921 (H4e).
+Figure 1 and Table 2 present the results of the multiple mediation analysis for \emph{reduced personal efficiency}. Roughly half of the total effect, \(B=\) -0.060, \(SE=\) 0.010, 95\% CI {[}-0.079, -0.039{]}, \(\beta=\) -.225, stemmed from the direct path of NFC on reduced personal efficiency, \(B=\) -0.029, \(SE=\) 0.012, 95\% CI {[}-0.053, -0.006{]}, \(\beta=\) -.110. While NFC predicted self-control, \(B=\) 0.277, \(SE=\) 0.015, 95\% CI {[}0.247, 0.306{]}, \(\beta=\) .600, self-control did not predict reduced personal efficiency, \(B=\) -0.025, \(SE=\) 0.028, 95\% CI {[}-0.081, 0.030{]}, \(\beta=\) -.044, hence, no mediation occured, \(B=\) -0.007, \(SE=\) 0.008, 95\% CI {[}-0.022, 0.008{]}, \(\beta=\) -.027 (H4a). Habitual emotion regulation strategies did not mediate the NFC--efficiency link, neither for reappraisal, \(B=\) -0.004, \(SE=\) 0.002, 95\% CI {[}-0.008, -0.001{]}, \(\beta=\) -.013 (H4b), nor for suppression, \(B=\) -0.001, \(SE=\) 0.001, 95\% CI {[}-0.003, 0.001{]}, \(\beta=\) -.002 (H4c). Adaptive coping mediated the effect of NFC on reduced personal efficiency, , \(B=\) -0.019, \(SE=\) 0.005, 95\% CI {[}-0.028, -0.011{]}, \(\beta=\) -.071 (H4d). Although NFC predicted maladaptive coping, \(B=\) -0.042, \(SE=\) 0.005, 95\% CI {[}-0.052, -0.032{]}, \(\beta=\) -.330, a mediation effect of maladaptive coping was not supported, \(B=\) 0.000, \(SE=\) 0.003, 95\% CI {[}-0.007, 0.006{]}, \(\beta=\) -.001 (H4e).
 
 \begin{figure}
 \centering
@@ -502,26 +502,26 @@ Figure 1 and Table 2 present the results of the multiple mediation analysis for 
 \toprule
  & \multicolumn{1}{c}{$B$} & \multicolumn{1}{c}{$SE$} & \multicolumn{1}{c}{$LB$} & \multicolumn{1}{c}{$UB$} & \multicolumn{1}{c}{$p$} & \multicolumn{1}{c}{$\beta$}\\
 \midrule
-\textit{Direct effect of NFC on EE} & -0.046 & 0.026 & -0.096 & 0.005 & .078 & -.088\\ \midrule
+\textit{Direct effect of NFC on EE} & -0.046 & 0.026 & -0.098 & 0.005 & .079 & -.088\\ \midrule
 \textit{NFC to Mediators} &  &  &  &  &  & \\
-\ \ \ a1: Self-Control & 0.277 & 0.015 & 0.247 & 0.307 & < .001 & .600\\
-\ \ \ a2: Reappraisal & 0.040 & 0.016 & 0.009 & 0.071 & .012 & .104\\
-\ \ \ a3: Suppression & -0.011 & 0.013 & -0.036 & 0.015 & .412 & -.034\\
-\ \ \ a4: Adaptive Coping & 0.074 & 0.015 & 0.045 & 0.103 & < .001 & .194\\
+\ \ \ a1: Self-Control & 0.277 & 0.015 & 0.247 & 0.306 & < .001 & .600\\
+\ \ \ a2: Reappraisal & 0.040 & 0.015 & 0.010 & 0.070 & .010 & .104\\
+\ \ \ a3: Suppression & -0.011 & 0.013 & -0.035 & 0.015 & .409 & -.034\\
+\ \ \ a4: Adaptive Coping & 0.074 & 0.015 & 0.045 & 0.104 & < .001 & .194\\
 \ \ \ a5: Maladaptive Coping & -0.042 & 0.005 & -0.052 & -0.033 & < .001 & -.330\\ \midrule
 \textit{Mediators to EE} &  &  &  &  &  & \\
-\ \ \ b1: Self-Control & -0.039 & 0.055 & -0.146 & 0.068 & .476 & -.035\\
-\ \ \ b2: Reappraisal & -0.009 & 0.054 & -0.114 & 0.097 & .871 & -.006\\
-\ \ \ b3: Suppression & 0.134 & 0.064 & 0.010 & 0.259 & .035 & .081\\
-\ \ \ b4: Adaptive Coping & -0.417 & 0.055 & -0.526 & -0.308 & < .001 & -.306\\
-\ \ \ b5: Maladaptive Coping & 0.597 & 0.166 & 0.271 & 0.923 & < .001 & .148\\ \midrule
+\ \ \ b1: Self-Control & -0.039 & 0.054 & -0.145 & 0.064 & .470 & -.035\\
+\ \ \ b2: Reappraisal & -0.009 & 0.054 & -0.113 & 0.098 & .871 & -.006\\
+\ \ \ b3: Suppression & 0.134 & 0.064 & 0.012 & 0.263 & .035 & .081\\
+\ \ \ b4: Adaptive Coping & -0.417 & 0.056 & -0.519 & -0.302 & < .001 & -.306\\
+\ \ \ b5: Maladaptive Coping & 0.597 & 0.165 & 0.280 & 0.927 & < .001 & .148\\ \midrule
 \textit{Indirect effects} &  &  &  &  &  & \\
-\ \ \ ind1: Self-Control & -0.011 & 0.015 & -0.041 & 0.019 & .477 & -.021\\
-\ \ \ ind2: Reappraisal & 0.000 & 0.002 & -0.005 & 0.004 & .872 & -.001\\
-\ \ \ ind3: Suppression & -0.001 & 0.002 & -0.005 & 0.002 & .452 & -.003\\
-\ \ \ ind4: Adaptive Coping & -0.031 & 0.007 & -0.045 & -0.017 & < .001 & -.059\\
-\ \ \ ind5: Maladaptive Coping & -0.025 & 0.008 & -0.041 & -0.010 & .001 & -.049\\ \midrule
-\textit{Total effect} & -0.114 & 0.020 & -0.154 & -0.075 & < .001 & -.220\\
+\ \ \ ind1: Self-Control & -0.011 & 0.015 & -0.040 & 0.018 & .472 & -.021\\
+\ \ \ ind2: Reappraisal & 0.000 & 0.002 & -0.006 & 0.004 & .880 & -.001\\
+\ \ \ ind3: Suppression & -0.001 & 0.002 & -0.007 & 0.001 & .483 & -.003\\
+\ \ \ ind4: Adaptive Coping & -0.031 & 0.007 & -0.047 & -0.019 & < .001 & -.059\\
+\ \ \ ind5: Maladaptive Coping & -0.025 & 0.008 & -0.043 & -0.012 & .001 & -.049\\ \midrule
+\textit{Total effect} & -0.114 & 0.020 & -0.153 & -0.075 & < .001 & -.220\\
 \bottomrule
 \addlinespace
 \end{tabular}
@@ -539,7 +539,7 @@ Figure 1 and Table 2 present the results of the multiple mediation analysis for 
 
 \subsubsection{Research Question 5}\label{research-question-5}
 
-Figure 2 and Table 3 show the model for \emph{emotional exhaustion}. Less than half of the total effect, \(\beta=\) -.22, \(p\) \textless{} .001, was due to the direct path, \(\beta=\) -.09, \(p\) = .078. Mediation occurred for adaptive coping, \(\beta=\) -.06, \(p\) \textless{} .001, and maladaptive coping, \(\beta=\) -.05, \(p\) = .001, but not for self-control, \(\beta=\) -.02, \(p\) = .477, reappraisal, \(\beta=\) .00, \(p\) = .872, or suppression, \(\beta=\) .00, \(p\) = .452.
+Figure 2 and Table 3 show the model for \emph{emotional exhaustion}. Less than half of the total effect, \(B=\) -0.114, \(SE=\) 0.020, 95\% CI {[}-0.153, -0.075{]}, \(\beta=\) -.220, was due to the direct path, \(B=\) -0.046, \(SE=\) 0.026, 95\% CI {[}-0.098, 0.005{]}, \(\beta=\) -.088. Mediation occurred for adaptive coping, \(B=\) -0.031, \(SE=\) 0.007, 95\% CI {[}-0.046, -0.018{]}, \(\beta=\) -.059, and maladaptive coping, \(B=\) -0.025, \(SE=\) 0.008, 95\% CI {[}-0.042, -0.011{]}, \(\beta=\) -.049, but not for self-control, \(B=\) -0.011, \(SE=\) 0.015, 95\% CI {[}-0.040, 0.018{]}, \(\beta=\) -.021, reappraisal, \(B=\) 0.000, \(SE=\) 0.002, 95\% CI {[}-0.005, 0.004{]}, \(\beta=\) -.001, or suppression, \(B=\) -0.001, \(SE=\) 0.002, 95\% CI {[}-0.006, 0.002{]}, \(\beta=\) -.003.
 
 \begin{figure}
 \centering
@@ -560,25 +560,25 @@ Figure 2 and Table 3 show the model for \emph{emotional exhaustion}. Less than h
 \toprule
  & \multicolumn{1}{c}{$B$} & \multicolumn{1}{c}{$SE$} & \multicolumn{1}{c}{$LB$} & \multicolumn{1}{c}{$UB$} & \multicolumn{1}{c}{$p$} & \multicolumn{1}{c}{$\beta$}\\
 \midrule
-\textit{Direct effect of NFC on DE} & -0.009 & 0.013 & -0.035 & 0.017 & .493 & -.034\\ \midrule
+\textit{Direct effect of NFC on DE} & -0.009 & 0.013 & -0.035 & 0.018 & .495 & -.034\\ \midrule
 \textit{NFC to Mediators} &  &  &  &  &  & \\
-\ \ \ a1: Self-Control & 0.277 & 0.015 & 0.247 & 0.307 & < .001 & .600\\
-\ \ \ a2: Reappraisal & 0.040 & 0.016 & 0.009 & 0.071 & .012 & .104\\
-\ \ \ a3: Suppression & -0.011 & 0.013 & -0.036 & 0.015 & .412 & -.034\\
-\ \ \ a4: Adaptive Coping & 0.074 & 0.015 & 0.045 & 0.103 & < .001 & .194\\
+\ \ \ a1: Self-Control & 0.277 & 0.015 & 0.247 & 0.306 & < .001 & .600\\
+\ \ \ a2: Reappraisal & 0.040 & 0.015 & 0.010 & 0.070 & .010 & .104\\
+\ \ \ a3: Suppression & -0.011 & 0.013 & -0.035 & 0.015 & .409 & -.034\\
+\ \ \ a4: Adaptive Coping & 0.074 & 0.015 & 0.045 & 0.104 & < .001 & .194\\
 \ \ \ a5: Maladaptive Coping & -0.042 & 0.005 & -0.052 & -0.033 & < .001 & -.330\\ \midrule
 \textit{Mediators to DE} &  &  &  &  &  & \\
-\ \ \ b1: Self-Control & -0.001 & 0.030 & -0.061 & 0.058 & .964 & -.002\\
-\ \ \ b2: Reappraisal & -0.067 & 0.027 & -0.121 & -0.013 & .015 & -.095\\
-\ \ \ b3: Suppression & 0.179 & 0.031 & 0.117 & 0.241 & < .001 & .210\\
-\ \ \ b4: Adaptive Coping & -0.134 & 0.029 & -0.191 & -0.077 & < .001 & -.190\\
-\ \ \ b5: Maladaptive Coping & 0.221 & 0.080 & 0.064 & 0.379 & .006 & .106\\ \midrule
+\ \ \ b1: Self-Control & -0.001 & 0.030 & -0.061 & 0.057 & .964 & -.002\\
+\ \ \ b2: Reappraisal & -0.067 & 0.028 & -0.123 & -0.015 & .015 & -.095\\
+\ \ \ b3: Suppression & 0.179 & 0.032 & 0.115 & 0.242 & < .001 & .210\\
+\ \ \ b4: Adaptive Coping & -0.134 & 0.029 & -0.191 & -0.076 & < .001 & -.190\\
+\ \ \ b5: Maladaptive Coping & 0.221 & 0.079 & 0.072 & 0.381 & .005 & .106\\ \midrule
 \textit{Indirect effects} &  &  &  &  &  & \\
 \ \ \ ind1: Self-Control & 0.000 & 0.008 & -0.017 & 0.016 & .964 & -.001\\
-\ \ \ ind2: Reappraisal & -0.003 & 0.001 & -0.005 & 0.000 & .065 & -.010\\
-\ \ \ ind3: Suppression & -0.002 & 0.002 & -0.006 & 0.003 & .420 & -.007\\
-\ \ \ ind4: Adaptive Coping & -0.010 & 0.003 & -0.015 & -0.004 & < .001 & -.037\\
-\ \ \ ind5: Maladaptive Coping & -0.009 & 0.004 & -0.017 & -0.002 & .010 & -.035\\ \midrule
+\ \ \ ind2: Reappraisal & -0.003 & 0.001 & -0.006 & -0.001 & .070 & -.010\\
+\ \ \ ind3: Suppression & -0.002 & 0.002 & -0.007 & 0.003 & .422 & -.007\\
+\ \ \ ind4: Adaptive Coping & -0.010 & 0.003 & -0.017 & -0.005 & .001 & -.037\\
+\ \ \ ind5: Maladaptive Coping & -0.009 & 0.004 & -0.017 & -0.003 & .009 & -.035\\ \midrule
 \textit{Total effect} & -0.033 & 0.010 & -0.052 & -0.014 & .001 & -.124\\
 \bottomrule
 \addlinespace
@@ -597,7 +597,7 @@ Figure 2 and Table 3 show the model for \emph{emotional exhaustion}. Less than h
 
 \subsubsection{Research Question 6}\label{research-question-6}
 
-Figure 3 and Table 4 show the model for \emph{depersonalization}. About one third of the total effect, \(\beta=\) -.12, \(p\) \textless{} .001, reflected the direct path, \(\beta=\) -.03, \(p\) = .493. Again, mediation was found for adaptive and maladaptive coping, \(\beta=\) -.04, \(p\) \textless{} .001, and \(\beta=\) -.03, \(p\) = .010, but not for self-control, \(\beta=\) .00, \(p\) = .964, reappraisal, \(\beta=\) -.01, \(p\) = .065, or suppression, \(\beta=\) -.01, \(p\) = .420.
+Figure 3 and Table 4 show the model for \emph{depersonalization}. About one third of the total effect, \(B=\) -0.033, \(SE=\) 0.010, 95\% CI {[}-0.052, -0.014{]}, \(\beta=\) -.124, reflected the direct path, \(B=\) -0.009, \(SE=\) 0.013, 95\% CI {[}-0.036, 0.017{]}, \(\beta=\) -.034. Again, mediation was found for adaptive and maladaptive coping, \(B=\) -0.010, \(SE=\) 0.003, 95\% CI {[}-0.016, -0.005{]}, \(\beta=\) -.037, and \(B=\) -0.009, \(SE=\) 0.004, 95\% CI {[}-0.017, -0.003{]}, \(\beta=\) -.035, but not for self-control, \(B=\) 0.000, \(SE=\) 0.008, 95\% CI {[}-0.016, 0.016{]}, \(\beta=\) -.001, reappraisal, \(B=\) -0.003, \(SE=\) 0.001, 95\% CI {[}-0.006, 0.000{]}, \(\beta=\) -.010, or suppression, \(B=\) -0.002, \(SE=\) 0.002, 95\% CI {[}-0.007, 0.003{]}, \(\beta=\) -.007.
 
 \begin{figure}
 \centering

@@ -1,3 +1,5 @@
+library(here)    # for finding working directory
+library(papaja)  # for APA-conform formatting
 library(shape)   # for Arrows()
 
 # load parameter estimates for rpe (Fig1), ee (Fig2, and de (Fig3)
@@ -9,8 +11,11 @@ load(here("Data", "NFC-Caregiver_RMarkdown-generated.RData"))
 get_val <- function(lbl) {
   printnum(pe_rpe$std.all[pe_rpe$label == lbl], gt1 = FALSE)
 }
+
 get_sig <- function(lbl) {
-  (pe_rpe$pvalue[pe_rpe$label == lbl] < .05) + 1
+  # dniz = (d)oes (n)ot (i)nclude (z)ero
+  dniz = (!(pe_rpe$ci.lower[pe_rpe$label == lbl] <= 0 & pe_rpe$ci.upper[pe_rpe$label == lbl] >= 0)) + 1
+  return(dniz)
 }
 
 # --- layout parameters ---
@@ -98,8 +103,11 @@ par(mar=c(5,4,4,2))
 get_val <- function(lbl) {
   printnum(pe_ee$std.all[pe_ee$label == lbl], gt1 = FALSE)
 }
+
 get_sig <- function(lbl) {
-  (pe_ee$pvalue[pe_ee$label == lbl] < .05) + 1
+  # dniz = (d)oes (n)ot (i)nclude (z)ero
+  dniz = (!(pe_ee$ci.lower[pe_ee$label == lbl] <= 0 & pe_ee$ci.upper[pe_ee$label == lbl] >= 0)) + 1
+  return(dniz)
 }
 
 # --- layout parameters ---
@@ -187,8 +195,11 @@ par(mar=c(5,4,4,2))
 get_val <- function(lbl) {
   printnum(pe_de$std.all[pe_de$label == lbl], gt1 = FALSE)
 }
+
 get_sig <- function(lbl) {
-  (pe_de$pvalue[pe_de$label == lbl] < .05) + 1
+  # dniz = (d)oes (n)ot (i)nclude (z)ero
+  dniz = (!(pe_de$ci.lower[pe_de$label == lbl] <= 0 & pe_de$ci.upper[pe_de$label == lbl] >= 0)) + 1
+  return(dniz)
 }
 
 # --- layout parameters ---
